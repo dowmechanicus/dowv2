@@ -7,11 +7,35 @@ import {
 	FirstDataRenderedEvent,
 	GridApi,
 	GridReadyEvent,
+	ICellRendererParams,
 	IDatasource,
 	IGetRowsParams,
 	RowClickedEvent,
 	RowDataChangedEvent,
+	ValueFormatterParams,
 } from 'ag-grid-community';
+
+const ratingsRenderer = (props: ICellRendererParams & { player: number }) => {
+	const rating = props.player === 1 ? props.data?.p1_rating : props.data?.p2_rating;
+	const outcome_rating = props.player === 1 ? props.data?.p1_outcome_rating : props.data?.p2_outcome_rating;
+	return (
+		<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<span style={{ flex: '1 1 100' }}>{rating}</span>
+			<span style={{ flex: '1 1 100' }}>
+				{rating < outcome_rating ? (
+					<>
+						<b>&nbsp;&#8599;&nbsp;</b>
+					</>
+				) : (
+					<>
+						<b>&nbsp;&#8600;&nbsp;</b>
+					</>
+				)}
+			</span>
+			<span style={{ flex: '1 1 100' }}>{outcome_rating}</span>
+		</div>
+	);
+};
 
 const Matches = () => {
 	const [gridApi, setGridApi]: [GridApi | undefined, any] = useState();
@@ -32,10 +56,7 @@ const Matches = () => {
 
 	const onFirstDataRendered = (params: FirstDataRenderedEvent) => {
 		params.api.sizeColumnsToFit();
-	};
-
-	const onRowClicked = (params: RowClickedEvent) => {
-		params.node.setExpanded(!params.node.expanded);
+		params.api.resetRowHeights();
 	};
 
 	const datasource: IDatasource = {
@@ -43,7 +64,7 @@ const Matches = () => {
 			try {
 				const offset = Math.floor(params.startRow / 25) * 25;
 
-				const res = await fetch(`http://localhost:3000/api/matches?offset=${offset}`);
+				const res = await fetch(`/api/matches?offset=${offset}`);
 				const { content, totalElements } = await res.json();
 
 				params.successCallback(content, totalElements[0].totalElements);
@@ -53,11 +74,19 @@ const Matches = () => {
 		},
 	};
 
+	const frameWorkComponents = {
+		ratingsRenderer: ratingsRenderer,
+	};
+
+	const timestampFormatter = (params: ValueFormatterParams) => {
+		return new Date(params.value * 1000).toLocaleString();
+	};
+
 	return (
 		<div
 			className="ag-theme-alpine"
 			style={{
-				width: '100%',
+				width: '80%',
 			}}
 		>
 			<AgGridReact
@@ -65,7 +94,6 @@ const Matches = () => {
 				onGridReady={onGridReady}
 				onRowDataChanged={onRowDataChanged}
 				onFirstDataRendered={onFirstDataRendered}
-				onRowClicked={onRowClicked}
 				pagination={true}
 				suppressPaginationPanel={false}
 				paginationPageSize={25}
@@ -74,11 +102,30 @@ const Matches = () => {
 				maxConcurrentDatasourceRequests={1}
 				rowModelType={'infinite'}
 				datasource={datasource}
+				frameworkComponents={frameWorkComponents}
+				suppressCellSelection={true}
 			>
-				<AgGridColumn field="p1_name"></AgGridColumn>
+				<AgGridColumn
+					headerName={'Date'}
+					field="unix_utc_time"
+					valueFormatter={timestampFormatter}
+				></AgGridColumn>
+				<AgGridColumn headerName={'Player 1'} field="p1_name"></AgGridColumn>
 				<AgGridColumn field="p1_hero"></AgGridColumn>
-				<AgGridColumn field="p2_name"></AgGridColumn>
+				<AgGridColumn
+					field="rating"
+					cellRenderer="ratingsRenderer"
+					cellRendererParams={{ player: 1 }}
+					wrapText={true}
+					autoHeight={true}
+				></AgGridColumn>
+				<AgGridColumn headerName={'Player 2'} field="p2_name"></AgGridColumn>
 				<AgGridColumn field="p2_hero"></AgGridColumn>
+				<AgGridColumn
+					field="rating"
+					cellRenderer="ratingsRenderer"
+					cellRendererParams={{ player: 2 }}
+				></AgGridColumn>
 			</AgGridReact>
 		</div>
 	);
