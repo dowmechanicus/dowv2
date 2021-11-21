@@ -1,30 +1,23 @@
+import { FaHome, FaSearch, FaTrophy, FaList } from 'react-icons/fa';
 import Link from 'next/link';
-import { Menu } from 'semantic-ui-react';
 
-import 'semantic-ui-css/semantic.min.css';
-
-const Navigation = ({ Component }: any) => {
+const Navigation = () => {
 	return (
-		<div style={{ margin: '1rem' }}>
-			<Menu pointing>
-				<Link href="/" passHref>
-					<Menu.Item name="home" />
-				</Link>
-				<Link href="/matches" passHref>
-					<Menu.Item name="matches" />
-				</Link>
-				<Link href="/ladder" passHref>
-					<Menu.Item name="ladder" />
-				</Link>
-				<Link href="/search" passHref>
-					<Menu.Item name="find games" />
-				</Link>
-				<Menu.Menu position="right"></Menu.Menu>
-			</Menu>
-
-			{Component}
+		<div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
+			<SideBarIcon icon={<FaHome size="28" />} href={'/'} />
+			<SideBarIcon icon={<FaList size="28" />} href={'/matches'} />
+			<SideBarIcon icon={<FaTrophy size="28" />} href={'/ladder'} />
+			<SideBarIcon icon={<FaSearch size="28" />} href={'/search'} />
 		</div>
 	);
 };
+
+const SideBarIcon = ({ icon, href }: any) => (
+	<div className="relative flex items-center justify-center h-12 w-12 mt-2 mb-2 mx-auto bg-gray-800 text-green-500 hover:bg-green-600 hover:text-white rounder-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer">
+		<Link href={href} passHref>
+			<a>{icon}</a>
+		</Link>
+	</div>
+);
 
 export default Navigation;
