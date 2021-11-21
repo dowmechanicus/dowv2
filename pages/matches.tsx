@@ -14,12 +14,13 @@ import {
 	RowDataChangedEvent,
 	ValueFormatterParams,
 } from 'ag-grid-community';
+import { GetServerSidePropsContext } from 'next';
 
 const ratingsRenderer = (props: ICellRendererParams & { player: number }) => {
 	const rating = props.player === 1 ? props.data?.p1_rating : props.data?.p2_rating;
 	const outcome_rating = props.player === 1 ? props.data?.p1_outcome_rating : props.data?.p2_outcome_rating;
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column' }}>
+		<div style={{ display: 'flex', flexDirection: 'row' }}>
 			<span style={{ flex: '1 1 100' }}>{rating}</span>
 			<span style={{ flex: '1 1 100' }}>
 				{rating < outcome_rating ? (
@@ -37,7 +38,7 @@ const ratingsRenderer = (props: ICellRendererParams & { player: number }) => {
 	);
 };
 
-const Matches = () => {
+const Matches = ({ matches, totalElements }: any) => {
 	const [gridApi, setGridApi]: [GridApi | undefined, any] = useState();
 
 	const onGridReady = (params: GridReadyEvent) => {
@@ -51,7 +52,7 @@ const Matches = () => {
 	};
 
 	const onRowDataChanged = (params: RowDataChangedEvent) => {
-		params.api.sizeColumnsToFit();
+		params.api?.sizeColumnsToFit();
 	};
 
 	const onFirstDataRendered = (params: FirstDataRenderedEvent) => {
@@ -86,11 +87,13 @@ const Matches = () => {
 		<div
 			className="ag-theme-alpine"
 			style={{
-				width: '80%',
+				margin: '0 auto',
+				width: '80vw',
+				height: '80vh',
 			}}
 		>
 			<AgGridReact
-				domLayout={'autoHeight'}
+				// domLayout={'autoHeight'}
 				onGridReady={onGridReady}
 				onRowDataChanged={onRowDataChanged}
 				onFirstDataRendered={onFirstDataRendered}
@@ -130,5 +133,19 @@ const Matches = () => {
 		</div>
 	);
 };
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+	const offset = context.query.offset ?? 0;
+
+	const res = await fetch(`http://localhost:3000/api/matches?offset=${offset}`);
+	const { content, totalElements } = await res.json();
+
+	return {
+		props: {
+			matches: content,
+			totalElements: totalElements[0].totalElements,
+		},
+	};
+}
 
 export default Matches;
