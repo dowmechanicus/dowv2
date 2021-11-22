@@ -10,6 +10,7 @@ const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse
       WHERE
         ${hero ? (map ? '(p1_hero = ? OR p2_hero = ?) AND' : '(p1_hero = ? OR p2_hero = ?)') : ''}
         ${map ? 'map = ?' : ''}
+      ORDER BY matches.unix_utc_time DESC
       LIMIT 50`;
 
   const queryParams: any[] = [];
