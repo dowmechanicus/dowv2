@@ -1,39 +1,13 @@
+import { useEffect, useState } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import { URLSearchParams } from 'url';
 
-import { AgGridColumn, AgGridReact } from 'ag-grid-react';
-
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import {
-	FirstDataRenderedEvent,
-	GridReadyEvent,
-	RowDataChangedEvent,
-	ValueFormatterParams,
-} from 'ag-grid-community';
-import { useEffect, useState } from 'react';
+import Hero from '@/components/hero';
 
 const Search = ({ matches, maps, query }) => {
 	const [formState, setFormState] = useState({ hero: '', map: '' });
 
 	useEffect(() => query && setFormState(query), []);
-
-	const onGridReady = (params: GridReadyEvent) => {
-		window.addEventListener('resize', function () {
-			setTimeout(function () {
-				params.api.sizeColumnsToFit();
-			});
-		});
-	};
-
-	const onRowDataChanged = (params: RowDataChangedEvent) => params.api?.sizeColumnsToFit();
-
-	const onFirstDataRendered = (params: FirstDataRenderedEvent) => {
-		params.api.sizeColumnsToFit();
-		params.api.resetRowHeights();
-	};
-
-	const timestampFormatter = (params: ValueFormatterParams) => new Date(params.value * 1000).toLocaleString();
 
 	const form_value_changed = (event) => {
 		const form_field: string = event.target.name;
@@ -96,41 +70,18 @@ const Search = ({ matches, maps, query }) => {
 				</select>
 
 				{/* <input type="date" name="date" /> */}
-				<button type="reset">Reset</button>
-				<button type="submit">Search</button>
+				<button
+					type="submit"
+					className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+				>
+					Search
+				</button>
 			</form>
 
 			{matches && (
 				<div>
 					<h3>Results:</h3>
-					<div
-						className="ag-theme-alpine"
-						style={{
-							margin: '0 auto',
-							width: '80vw',
-							height: '80vh',
-						}}
-					>
-						<AgGridReact
-							rowData={matches}
-							// domLayout={'autoHeight'}
-							onGridReady={onGridReady}
-							onRowDataChanged={onRowDataChanged}
-							onFirstDataRendered={onFirstDataRendered}
-							suppressCellSelection={true}
-						>
-							<AgGridColumn
-								headerName={'Date'}
-								field="unix_utc_time"
-								valueFormatter={timestampFormatter}
-							></AgGridColumn>
-							<AgGridColumn headerName={'Player 1'} field="p1_name"></AgGridColumn>
-							<AgGridColumn headerName={'Hero'} field="p1_hero"></AgGridColumn>
-							<AgGridColumn headerName={'Player 2'} field="p2_name"></AgGridColumn>
-							<AgGridColumn headerName={'Hero'} field="p2_hero"></AgGridColumn>
-							<AgGridColumn headerName={'Map'} field="map_name"></AgGridColumn>
-						</AgGridReact>
-					</div>
+					<ResultTable rowData={matches} />
 				</div>
 			)}
 		</div>
@@ -172,3 +123,93 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 export default Search;
+
+const ResultTable = ({ rowData }: { rowData: any[] }) => {
+	return (
+		<div className="flex flex-col">
+			<div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+				<div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+					<div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+						<table className="min-w-full divide-y divide-gray-500">
+							<thead className="bg-gray-100">
+								<tr>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Date
+									</th>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Player 1
+									</th>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Hero
+									</th>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Player 2
+									</th>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Hero
+									</th>
+									<th
+										scope="col"
+										className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+									>
+										Map
+									</th>
+									<th scope="col" className="relative px-6 py-3">
+										<span className="sr-only">Edit</span>
+									</th>
+								</tr>
+							</thead>
+							<tbody className="bg-gray-100 divide-y divide-gray-500">
+								{rowData.map((match) => (
+									<tr key={match.id}>
+										<td className="px-6 py-4 whitespace-nowrap">
+											<span className="text-sm text-gray-700">
+												{new Date(match.unix_utc_time * 1000).toLocaleString('de-DE', {
+													year: 'numeric',
+													month: '2-digit',
+													day: '2-digit',
+													hour: '2-digit',
+													minute: '2-digit',
+													hour12: false,
+												})}
+											</span>
+										</td>
+										<td className="px-6 py-4 whitespace-nowrap">{match.p1_name}</td>
+										<td className="px-6 py-4 whitespace-nowrap">
+											<Hero hero={match.p1_hero} />
+										</td>
+										<td className="px-6 py-4 whitespace-nowrap">{match.p2_name}</td>
+										<td className="px-6 py-4 whitespace-nowrap">
+											<Hero hero={match.p2_hero} />
+										</td>
+										<td className="px-6 py-4 whitespace-nowrap">{match.map_name}</td>
+										<td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+											<a href="#" className="text-indigo-600 hover:text-indigo-900">
+												View
+											</a>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
