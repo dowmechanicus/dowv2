@@ -1,15 +1,24 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { GetServerSidePropsContext } from 'next';
 import { URLSearchParams } from 'url';
 
 import Hero from '@/components/hero';
 
-const Search = ({ matches, maps, query }) => {
+interface Props {
+	matches: any[];
+	maps: any[];
+	query: {
+		hero: string;
+		map: string;
+	};
+}
+
+const Search = ({ matches, maps, query }: Props) => {
 	const [formState, setFormState] = useState({ hero: '', map: '' });
 
 	useEffect(() => query && setFormState(query), []);
 
-	const form_value_changed = (event) => {
+	const form_value_changed = (event: ChangeEvent<HTMLSelectElement>) => {
 		const form_field: string = event.target.name;
 		setFormState({
 			...formState,
@@ -89,7 +98,9 @@ const Search = ({ matches, maps, query }) => {
 };
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const maps_response = await fetch('http://localhost:3000/api/maps');
+	const maps_response = await fetch(
+		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/maps`
+	);
 	const { maps } = await maps_response.json();
 
 	// if query is set on context we have search parameters
@@ -104,7 +115,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		map && search_params.append('map', map);
 
 		if (Array.from(search_params).length) {
-			const query_response = await fetch('http://localhost:3000/api/search?' + search_params);
+			const query_response = await fetch(
+				`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/search?` + search_params
+			);
 			const { matches } = await query_response.json();
 
 			return {
@@ -128,7 +141,7 @@ const ResultTable = ({ rowData }: { rowData: any[] }) => {
 	return (
 		<div className="flex flex-col">
 			<div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-				<div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+				<div className="py-2 align-middle inline-block w-7/12 sm:px-6 lg:px-8">
 					<div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
 						<table className="min-w-full divide-y divide-gray-500">
 							<thead className="bg-gray-100">

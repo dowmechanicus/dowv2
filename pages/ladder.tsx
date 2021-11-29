@@ -47,7 +47,7 @@ const Ladder = ({ players }: any) => {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	try {
-		const res = await fetch('http://localhost:3000/api/ladder');
+		const res = await fetch(`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/ladder`);
 		const { players, winrates } = await res.json();
 
 		let _players = players.map((player: any) => {

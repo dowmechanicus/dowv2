@@ -23,7 +23,9 @@ const Matches = ({ matches, totalElements }: any) => {
 };
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-	const res = await fetch(`http://localhost:3000/api/matches?offset=${page}`);
+	const res = await fetch(
+		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/matches?offset=${page}`
+	);
 	const { matches = null, totalElements = null } = await res.json();
 
 	return {
