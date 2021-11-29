@@ -1,4 +1,6 @@
-import { FaHome, FaSearch, FaTrophy, FaList } from 'react-icons/fa';
+import { FaHome, FaSearch, FaList } from 'react-icons/fa';
+import { MdGroups } from 'react-icons/md';
+import { GiRank3 } from 'react-icons/gi';
 import Link from 'next/link';
 
 const Navigation = () => {
@@ -6,7 +8,8 @@ const Navigation = () => {
 		<div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
 			<SideBarIcon icon={<FaHome size="28" />} href={'/'} />
 			<SideBarIcon icon={<FaList size="28" />} href={'/matches'} />
-			<SideBarIcon icon={<FaTrophy size="28" />} href={'/ladder'} />
+			<SideBarIcon icon={<GiRank3 size="28" />} href={'/ladder'} />
+			<SideBarIcon icon={<MdGroups size="28" />} href={'/players'} />
 			<SideBarIcon icon={<FaSearch size="28" />} href={'/search'} />
 		</div>
 	);
