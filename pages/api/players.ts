@@ -3,13 +3,14 @@ import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
 const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
   try {
-    const offset = req.query.offset ?? 0;
     const size = 25;
+    const page = parseInt((req.query.offset as string) ?? 0);
+    const offset = (size * page) - size;
 
-    const totalElements = await query('SELECT COUNT(*) as totalElements FROM players')
-    const content = await query(`SELECT * FROM players LIMIT ${offset},${size}`)
+    const totalElements: [{ totalElements: number }] = await query('SELECT COUNT(*) as totalElements FROM players');
+    const players = await query(`SELECT * FROM players LIMIT ${size} OFFSET ${offset}`)
 
-    return res.json({ content, totalElements });
+    return res.json({ players, totalElements: totalElements[0]?.totalElements });
   } catch (e: any) {
     res.status(500).json({ message: e.message })
   }

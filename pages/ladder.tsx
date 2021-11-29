@@ -1,5 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
-import Image from 'next/image';
+import Ratings from '@/components/ratings';
+import { MainRace } from '@/lib/helpers';
+import { DowTable, DefaultField } from '@/components/table';
 
 interface Player {
 	cr: number;
@@ -14,37 +16,32 @@ interface Player {
 }
 
 const Ladder = ({ players }: any) => {
+	const headers: string[] = ['Rank', 'Name', 'Main Race', 'Ratings', 'Winrate'];
+
 	return (
-		<table className="ui table">
-			<thead>
-				<tr>
-					<th>Rank</th>
-					<th>Name</th>
-					<th>Main race</th>
-					<th>Ratings</th>
-					<th>Records</th>
-				</tr>
-			</thead>
-			<tbody>
-				{players.map((player: Player, index: number) => (
-					<tr key={index}>
-						<td>{index + 1}</td>
-						<td>
-							<PlayerName player={player} />
-						</td>
-						<td>
-							<MainRace player={player} />
-						</td>
-						<td>
-							<Ratings player={player} />
-						</td>
-						<td>
-							<Record player={player} />
-						</td>
-					</tr>
-				))}
-			</tbody>
-		</table>
+		<>
+			<DowTable headers={headers}>
+				{players
+					? players.map((player: Player, index: number) => (
+							<tr key={index}>
+								<DefaultField>{index + 1}</DefaultField>
+								<DefaultField>
+									<PlayerName player={player} />
+								</DefaultField>
+								<DefaultField>
+									<MainRace size={40} main_race={player.main_race} />
+								</DefaultField>
+								<DefaultField>
+									<Ratings rating={{ cr: player.cr, glicko_rating: player.glicko_rating, rd: player.rd }} />
+								</DefaultField>
+								<DefaultField>
+									<Record player={player} />
+								</DefaultField>
+							</tr>
+					  ))
+					: 'No data available'}
+			</DowTable>
+		</>
 	);
 };
 
@@ -74,57 +71,16 @@ export default Ladder;
 
 function PlayerName({ player }: { player: Player }) {
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column' }}>
+		<div className="flex flex-col">
 			<span>{player.last_steam_name}</span>
-			<span>{player.alias ?? 'No known alias'}</span>
+			<span className="text-xs text-gray-400">{player.alias ?? 'No known alias'}</span>
 		</div>
 	);
 }
 
-function MainRace({ player }: { player: Player }) {
-	let url: string;
-
-	switch (player.main_race) {
-		case 1:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_sm_x.png';
-			break;
-		case 2:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_ork_x.png';
-			break;
-		case 3:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_eldar_x.png';
-			break;
-		case 4:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_tyranid_x.png';
-			break;
-		case 5:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_chaos_x.png';
-			break;
-		case 6:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_ig_x.png';
-			break;
-		case 7:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_gk_x.png';
-			break;
-		default:
-			url = 'https://dawnofwar.info/assets/img/dow2/race_sm_x.png';
-			break;
-	}
-	return <Image width="32px" height="32px" src={url} alt="IG" />;
-}
-function Ratings({ player }: { player: Player }) {
-	return (
-		<div style={{ display: 'flex', flexDirection: 'column' }}>
-			<span>{player.cr}</span>
-			<span>
-				{player.glicko_rating} &#177; {player.rd}
-			</span>
-		</div>
-	);
-}
 function Record({ player }: { player: Player }) {
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column' }}>
+		<div className="flex flex-col">
 			<span>
 				<span style={{ color: 'green' }}>{player.wins}</span> -{' '}
 				<span style={{ color: 'red' }}>{player.games - player.wins}</span>

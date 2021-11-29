@@ -1,83 +1,89 @@
-import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+import Pagination from '@/components/pagination';
+import Ratings from '@/components/ratings';
+import { MainRace } from '@/lib/helpers';
+import { FaDiscord } from 'react-icons/fa';
+import Image from 'next/image';
 
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import { useState } from 'react';
-import {
-	FirstDataRenderedEvent,
-	GridApi,
-	GridReadyEvent,
-	IDatasource,
-	IGetRowsParams,
-	RowDataChangedEvent,
-} from 'ag-grid-community';
-
-const Players = () => {
-	const [gridApi, setGridApi]: [GridApi | undefined, any] = useState();
-
-	const onGridReady = (params: GridReadyEvent) => {
-		setGridApi(params.api);
-
-		window.addEventListener('resize', function () {
-			setTimeout(function () {
-				params.api.sizeColumnsToFit();
-			});
-		});
-	};
-
-	const onRowDataChanged = (params: RowDataChangedEvent) => {
-		params.api.sizeColumnsToFit();
-	};
-
-	const onFirstDataRendered = (params: FirstDataRenderedEvent) => {
-		params.api.sizeColumnsToFit();
-	};
-
-	const datasource: IDatasource = {
-		getRows: async (params: IGetRowsParams) => {
-			try {
-				const offset =
-					Math.floor(params.startRow / (gridApi?.paginationGetPageSize() ?? 10)) *
-					(gridApi?.paginationGetPageSize() ?? 25);
-				const size = gridApi?.paginationGetPageSize() ?? 25;
-
-				const res = await fetch(`http://localhost:3000/api/players?offset=${offset}&size=${size}`);
-				const { content, totalElements } = await res.json();
-
-				params.successCallback(content, totalElements[0].totalElements);
-			} catch (e) {
-				params.failCallback();
-			}
-		},
-	};
-
+const Players = ({ players, totalElements }: { players: any[]; totalElements: number }) => {
 	return (
-		<div
-			className="ag-theme-alpine"
-			style={{
-				width: '100%',
-			}}
-		>
-			<AgGridReact
-				domLayout={'autoHeight'}
-				onGridReady={onGridReady}
-				onRowDataChanged={onRowDataChanged}
-				onFirstDataRendered={onFirstDataRendered}
-				pagination={true}
-				suppressPaginationPanel={false}
-				paginationPageSize={25}
-				cacheBlockSize={25}
-				maxBlocksInCache={1}
-				maxConcurrentDatasourceRequests={1}
-				rowModelType={'infinite'}
-				datasource={datasource}
-			>
-				<AgGridColumn field="relic_id"></AgGridColumn>
-				<AgGridColumn field="last_steam_name"></AgGridColumn>
-				<AgGridColumn field="glicko_rating"></AgGridColumn>
-			</AgGridReact>
+		<div className="py-2 align-middle inline-block w-7/12 sm:px-6 lg:px-8">
+			<div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+				<table className="min-w-full divide-y divide-gray-500">
+					<thead className="bg-gray-100">
+						<tr>
+							<th
+								scope="col"
+								className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+							>
+								Name
+							</th>
+							<th
+								scope="col"
+								className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+							>
+								Rating
+							</th>
+							<th
+								scope="col"
+								className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+							>
+								Main race
+							</th>
+							<th
+								scope="col"
+								className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+							>
+								Community
+							</th>
+						</tr>
+					</thead>
+					<tbody className="bg-gray-100 divide-y divide-gray-500">
+						{players
+							? players.map((player) => (
+									<tr key={player.relic_id}>
+										<td className="px-6 py-4 whitespace-nowrap">{player.last_steam_name}</td>
+										<td className="px-6 py-4 whitespace-nowrap">
+											<Ratings
+												rating={{ glicko_rating: player.glicko_rating, rd: player.ratings_deviation }}
+											/>
+										</td>
+										<td className="px-6 py-4 whitespace-nowrap">
+											<MainRace size={40} main_race={player.main_race} />
+										</td>
+										<td className="px-6 py-4 whitespace-nowrap flex justify-between">
+											{
+												<Image
+													src="/forum_logo.svg"
+													width={32}
+													height={32}
+													className={player.forum_id ? 'opacity-100' : 'opacity-10'}
+													alt="forum logo"
+												/>
+											}
+											{<FaDiscord size={32} style={{ opacity: player.discord_id ? 1 : 0.1 }} />}
+										</td>
+									</tr>
+							  ))
+							: 'No data available'}
+					</tbody>
+				</table>
+				{totalElements ? <Pagination totalElements={totalElements} /> : null}
+			</div>
 		</div>
 	);
 };
 
 export default Players;
+
+export async function getServerSideProps({ query: { page = 1 } }) {
+	const players_response = await fetch(`http://localhost:3000/api/players?offset=${page}`);
+	const { players, totalElements } = await players_response.json();
+
+	return {
+		props: {
+			players: players ?? null,
+			page,
+			totalElements: totalElements ?? 0,
+		},
+	};
+}
