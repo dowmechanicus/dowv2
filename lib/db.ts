@@ -10,12 +10,12 @@ export const db = mysql({
   },
 })
 
-export async function query(
+export async function query<T = any>(
   q: string,
   values: (string | number)[] | string | number = []
-) {
+): Promise<T> {
   try {
-    const results = await db.query(q, values)
+    const results = await db.query<T>(q, values)
     await db.end()
     return results
   } catch (e: any) {
