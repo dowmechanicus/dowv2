@@ -123,7 +123,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 			return {
 				props: {
 					matches,
-					maps: maps.filter((map: any) => map.player_count === 2),
+					maps: maps ? maps.filter((map: any) => map.player_count === 2) : [],
 					query: { hero: hero ?? '', map: map ?? '' },
 				},
 			};

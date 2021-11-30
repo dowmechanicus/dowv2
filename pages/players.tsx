@@ -76,9 +76,6 @@ const Players = ({ players, totalElements }: { players: any[]; totalElements: nu
 export default Players;
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-	console.log(
-		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/players?offset=${page}`
-	);
 	const players_response = await fetch(
 		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/players?offset=${page}`
 	);
