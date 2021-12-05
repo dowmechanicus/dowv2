@@ -7,8 +7,6 @@ import { FaTrophy } from 'react-icons/fa';
 const Matches = ({ matches, totalElements }: any) => {
 	const headers: string[] = ['Date', 'Player 1', 'Player 2', 'Map'];
 
-	console.log(matches);
-
 	return (
 		<DowTable headers={headers} totalElements={totalElements}>
 			{matches
@@ -92,12 +90,11 @@ const PlayerField = ({
 	winner: boolean;
 }) => {
 	return (
-		<div className="flex flex-row items-center justify-around">
-			<div className="flex flex-col items-center">
-				<Hero size={40} hero={hero} />
-				{winner && <span className="text-xs tracking-wider font-semibold">Victorious</span>}
+		<div className="flex flex-row items-left justify-between">
+			<div className="flex flex-col items-left">
+				<Hero size={50} hero={hero} />
 			</div>
-			<div className="flex flex-col items-center">
+			<div className="flex flex-col items-end">
 				<span>{name}</span>
 				<Ratings rating={{ glicko_rating: rating, rd: rd }} />
 				<Ratings rating={{ glicko_rating: outcome_rating, rd: outcome_rd }} />
