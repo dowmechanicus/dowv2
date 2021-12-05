@@ -16,7 +16,7 @@ interface Props {
 const Search = ({ matches, maps, query }: Props) => {
 	const [formState, setFormState] = useState({ hero: '', map: '' });
 
-	useEffect(() => query && setFormState(query), []);
+	useEffect(() => query && setFormState(query), [query]);
 
 	const form_value_changed = (event: ChangeEvent<HTMLSelectElement>) => {
 		const form_field: string = event.target.name;
@@ -131,7 +131,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 	}
 
 	return {
-		props: { maps: maps.filter((map: any) => map.player_count === 2) },
+		props: { maps: maps ? maps.filter((map: any) => map.player_count === 2) : [] },
 	};
 }
 
