@@ -8,7 +8,12 @@ WHERE ranked = 1 ORDER BY id DESC
 LIMIT ? OFFSET ?
 `;
 
-const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
+type Data = {
+  matches: any[],
+  totalElements: number
+}
+
+const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse<Data | { message: string }>) => {
   try {
     const size = 25;
     const page = parseInt((req.query.offset as string) ?? 0);
