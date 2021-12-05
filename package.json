@@ -1,5 +1,13 @@
 {
   "name": "dowv2",
+  "packageManager": "npm@6.14.15",
+  "author": {
+    "email": "adeptus.noobus@gmail.com",
+    "name": "Adeptus Noobus"
+  },
+  "maintainers": [
+    "Adeptus Noobus"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",
