@@ -3,6 +3,7 @@ import Hero from '@/components/hero';
 import { ticks2time } from '@/lib/helpers';
 import Ratings from '@/components/ratings';
 import { FaTrophy } from 'react-icons/fa';
+import { Match } from './api/matches';
 
 const Matches = ({ matches, totalElements }: any) => {
 	const headers: string[] = ['Date', 'Player 1', 'Player 2', 'Map'];
@@ -103,36 +104,4 @@ const PlayerField = ({
 	);
 };
 
-interface Match {
-	id: number;
-	match_relic_id: number;
-	automatch: boolean;
-	md5: string;
-	p1_relic_id: number;
-	p2_relic_id: number;
-	p1_name: string;
-	p2_name: string;
-	p1_hero: number;
-	p2_hero: number;
-	p1_rank: number;
-	p2_rank: number;
-	p1_rating: number;
-	p2_rating: number;
-	p1_rd: number;
-	p2_rd: number;
-	p1_outcome_rating: number;
-	p2_outcome_rating: number;
-	p1_outcome_rd: number;
-	p2_outcome_rd: number;
-	map: number;
-	ticks: number;
-	winner: 1 | 2;
-	ranked: number;
-	unix_utc_time: number;
-	mod_version: number;
-	chat: string;
-	observers: string;
-	youtube: string;
-	league: 0 | 1;
-	map_name: string;
-}
+
