@@ -3,6 +3,8 @@ import Hero from '@/components/hero';
 import { ticks2time } from '@/lib/helpers';
 import Ratings from '@/components/ratings';
 import { FaTrophy } from 'react-icons/fa';
+import { MatchDto } from './api/matches';
+import { PageResponse } from '@/lib/page-response.interface';
 
 const Matches = ({ matches, totalElements }: any) => {
 	const headers: string[] = ['Date', 'Player 1', 'Player 2', 'Map'];
@@ -24,11 +26,11 @@ export async function getServerSideProps({ query: { page = 1 } }) {
 	const res = await fetch(
 		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/matches?offset=${page}`
 	);
-	const { matches = null, totalElements = null } = await res.json();
+	const { data = [], totalElements = 0 }: PageResponse<MatchDto> = await res.json();
 
 	return {
 		props: {
-			matches,
+			matches: data,
 			totalElements,
 		},
 	};

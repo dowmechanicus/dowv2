@@ -5,9 +5,9 @@ export function DowTable(props: PropsWithChildren<any>) {
 	const { headers, totalElements }: { headers: string[]; totalElements: number } = props;
 	return (
 		<div className="py-2 align-middle inline-block w-8/12 sm:px-6 lg:px-8">
-			<div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+			<div className="shadow border-b border-gray-200 sm:rounded-lg max-h-96 overflow-auto">
 				<table className="min-w-full divide-y divide-gray-500">
-					<thead className="bg-gray-100">
+					<thead className="bg-gray-100 sticky top-0 z-10">
 						<tr>
 							{headers.map((header, index) => (
 								<th
@@ -22,8 +22,8 @@ export function DowTable(props: PropsWithChildren<any>) {
 					</thead>
 					<tbody className="bg-gray-100 divide-y divide-gray-500">{props.children}</tbody>
 				</table>
-				{totalElements ? <Pagination totalElements={totalElements} /> : null}
 			</div>
+			{totalElements ? <Pagination totalElements={totalElements} /> : null}
 		</div>
 	);
 }
