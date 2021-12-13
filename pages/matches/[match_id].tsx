@@ -4,6 +4,8 @@ import { InferGetServerSidePropsType } from 'next';
 
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Match } from 'pages/matches';
 
 const MatchDetails = ({ match }: { match: Match }) => {
@@ -17,6 +19,7 @@ const MatchDetails = ({ match }: { match: Match }) => {
 				<div className="card-body">
 					<h2 className="card-title">{match?.map_name ?? 'Unknown map'}</h2>
 					<div className="flex gap-20">
+						<Image src={`/img/maps/${match?.file_name}.png`} width={256} height={256} alt="Map" />
 						<div className="flex flex-col text-sm">
 							<span>{match?.map_name}</span>
 							<span>Duration: {ticks2time(match?.ticks)}</span>
@@ -26,6 +29,7 @@ const MatchDetails = ({ match }: { match: Match }) => {
 						<div className="flex flex-row items-center gap-8">
 							{
 								<PlayerDetails
+									relic_id={match.p1_relic_id}
 									hero={match.p1_hero}
 									rating={match.p1_rating}
 									outcome_rating={match.p1_outcome_rating}
@@ -37,6 +41,7 @@ const MatchDetails = ({ match }: { match: Match }) => {
 							<span>vs.</span>
 							{
 								<PlayerDetails
+									relic_id={match.p2_relic_id}
 									hero={match.p2_hero}
 									rating={match.p2_rating}
 									outcome_rating={match.p2_outcome_rating}
@@ -75,6 +80,7 @@ const MatchDetails = ({ match }: { match: Match }) => {
 };
 
 type PlayerDetailsProps = {
+	relic_id: number;
 	hero: number;
 	name: string;
 	rating: number;
@@ -82,13 +88,13 @@ type PlayerDetailsProps = {
 	rd: number;
 	outcome_rd: number;
 };
-function PlayerDetails({ hero, name, rating, outcome_rating, rd, outcome_rd }: PlayerDetailsProps) {
+function PlayerDetails({ hero, name, rating, outcome_rating, rd, outcome_rd, relic_id }: PlayerDetailsProps) {
 	const won: boolean = rating < outcome_rating;
 	return (
 		<div className="flex gap-3">
 			<div className="flex flex-col gap-3">
 				<div className="flex items-center gap-3">
-					<span>{name}</span>
+					<Link href={`/players/${relic_id}`}>{name}</Link>
 					<Hero size={52} hero={hero} />
 				</div>
 				<span className="text-2xs">
