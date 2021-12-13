@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const match = await query('SELECT matches.*, maps.screen_name as map_name FROM matches INNER JOIN maps on matches.map=maps.id WHERE matches.id = ?', [id]);
+    const match = await query('SELECT matches.*, maps.screen_name as map_name, maps.file_name as file_name FROM matches INNER JOIN maps on matches.map=maps.id WHERE matches.id = ?', [id]);
 
     if (!match || !match[0]) {
       throw new EntityNotFoundError('Match');
