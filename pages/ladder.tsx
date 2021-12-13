@@ -4,6 +4,7 @@ import { MainRace } from '@/lib/helpers';
 import { DowTable, DefaultField } from '@/components/table';
 
 interface Player {
+	relic_id: number;
 	cr: number;
 	glicko_rating: number;
 	last_steam_name: string;
@@ -15,7 +16,7 @@ interface Player {
 	wins: number;
 }
 
-const Ladder = ({ players }: any) => {
+const Ladder = ({ players }: { players: Player[] }) => {
 	const headers: string[] = ['Rank', 'Name', 'Main Race', 'Ratings', 'Winrate'];
 
 	return (
@@ -23,7 +24,7 @@ const Ladder = ({ players }: any) => {
 			<DowTable headers={headers}>
 				{players
 					? players.map((player: Player, index: number) => (
-							<tr key={index}>
+							<tr key={player.relic_id}>
 								<DefaultField>{index + 1}</DefaultField>
 								<DefaultField>
 									<PlayerName player={player} />
@@ -45,9 +46,9 @@ const Ladder = ({ players }: any) => {
 	);
 };
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getServerSideProps() {
 	try {
-		const res = await fetch(`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/ladder`);
+		const res = await fetch(`${process.env.API_URL}/ladder`);
 		const { players, winrates } = await res.json();
 
 		let _players = players.map((player: any) => {
@@ -82,8 +83,8 @@ function Record({ player }: { player: Player }) {
 	return (
 		<div className="flex flex-col">
 			<span>
-				<span style={{ color: 'green' }}>{player.wins}</span> -{' '}
-				<span style={{ color: 'red' }}>{player.games - player.wins}</span>
+				<span className="text-green-500">{player.wins}</span> :{' '}
+				<span className="text-red-500">{player.games - player.wins}</span>
 			</span>
 			<span>{Math.round((player.wins / player.games) * 100)} %</span>
 		</div>

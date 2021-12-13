@@ -5,32 +5,46 @@ import Ratings from '@/components/ratings';
 import { FaTrophy } from 'react-icons/fa';
 import { MatchDto } from './api/matches';
 import { PageResponse } from '@/lib/page-response.interface';
+import { useRouter } from 'next/router';
 
-const Matches = ({ matches, totalElements }: any) => {
+const Matches = ({ data: matches, totalElements }: PageResponse<Match>) => {
 	const headers: string[] = ['Date', 'Player 1', 'Player 2', 'Map'];
+	const router = useRouter();
+
+	const show_match = (match_id: number) => {
+		router.push(`${router.asPath}/${match_id}`);
+	};
 
 	return (
 		<DowTable headers={headers} totalElements={totalElements}>
-			{matches
-				? matches.map((match: Match) => (
-						<tr key={match.id}>
-							<MatchRow match={match} />
-						</tr>
-				  ))
-				: 'No data available'}
+			{matches ? (
+				matches.map((match: Match) => (
+					<tr
+						key={match.id}
+						className="hover:bg-gray-300 transition-colors hover:cursor-pointer"
+						onClick={() => show_match(match.id)}
+					>
+						<MatchRow match={match} />
+					</tr>
+				))
+			) : (
+				<tr>
+					<td colSpan={4} className="text-center">
+						No data available
+					</td>
+				</tr>
+			)}
 		</DowTable>
 	);
 };
 
 export async function getServerSideProps({ query: { page = 1 } }) {
-	const res = await fetch(
-		`${process.env.API_URL}:${process.env.PORT}${process.env.BASE_PATH}/api/matches?offset=${page}`
-	);
-	const { data = [], totalElements = 0 }: PageResponse<MatchDto> = await res.json();
+	const res = await fetch(`${process.env.API_URL}/matches?offset=${page}`);
+	const { data = [], totalElements = 0 }: PageResponse<Match> = await res.json();
 
 	return {
 		props: {
-			matches: data,
+			data,
 			totalElements,
 		},
 	};
@@ -66,9 +80,11 @@ const MatchRow = ({ match }: { match: Match }) => {
 					winner={match.winner === 2}
 				/>
 			</DefaultField>
-			<DefaultField className="flex flex-col">
-				<span>{match.map_name}</span>
-				<span className="text-xs text-gray-400">{ticks2time(match.ticks)}</span>
+			<DefaultField>
+				<div className="flex flex-col">
+					<span>{match.map_name}</span>
+					<span className="text-xs text-gray-400">{ticks2time(match.ticks)}</span>
+				</div>
 			</DefaultField>
 		</>
 	);
@@ -92,11 +108,11 @@ const PlayerField = ({
 	winner: boolean;
 }) => {
 	return (
-		<div className="flex flex-row items-left justify-between">
+		<div className="flex flex-row items-left gap-8">
 			<div className="flex flex-col items-left">
 				<Hero size={50} hero={hero} />
 			</div>
-			<div className="flex flex-col items-end">
+			<div className="flex flex-col items-left">
 				<span>{name}</span>
 				<Ratings rating={{ glicko_rating: rating, rd: rd }} />
 				<Ratings rating={{ glicko_rating: outcome_rating, rd: outcome_rd }} />
@@ -105,7 +121,7 @@ const PlayerField = ({
 	);
 };
 
-interface Match {
+export interface Match {
 	id: number;
 	match_relic_id: number;
 	automatch: boolean;
