@@ -1,5 +1,15 @@
 version: "3.0"
 services:
+  mysql:
+    image: mysql:5.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: esl
+      MYSQL_PASSWORD: esl
+      MYSQL_DATABASE: esl
+      MYSQL_USER: esl-user
+    ports:
+      - 3306:3306
   db:
     image: postgres:14-alpine
     restart: always
@@ -9,3 +19,19 @@ services:
       POSTGRES_DB: esl
     ports:
       - 5432:5432
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+      MYSQL_HOST: host.docker.internal
+      MYSQL_DATABASE: esl
+      MYSQL_USERNAME: esl-user
+      MYSQL_PASSWORD: esl
+      MYSQL_PORT: 3306
+      BASE_PATH:
+      API_URL: http://localhost
+
