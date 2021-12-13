@@ -153,4 +153,5 @@ export interface Match {
 	youtube: string;
 	league: 0 | 1;
 	map_name: string;
+	file_name: string;
 }

@@ -51,19 +51,20 @@ export async function getServerSideProps() {
 		const res = await fetch(`${process.env.API_URL}/ladder`);
 		const { players, winrates } = await res.json();
 
-		let _players = players.map((player: any) => {
+		let _players = players?.map((player: any) => {
 			const _res = winrates.find((_player: any) => _player?.player_id === player?.relic_id);
 
 			return { ...player, ..._res };
 		});
 
 		return {
-			props: { players: _players },
+			props: { players: _players ?? [] },
 		};
 	} catch (error) {
-		console.error(error);
 		return {
-			props: {},
+			props: {
+				players: [],
+			},
 		};
 	}
 }
