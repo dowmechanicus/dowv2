@@ -41,3 +41,7 @@ export function ticks2time(ticks: number): string {
 		remaining_seconds < 10 ? '0' + remaining_seconds : remaining_seconds
 	}`;
 }
+
+export function unix_time_to_datestring(unix_utc_time: number): string {
+	return new Date(unix_utc_time * 1000).toLocaleString();
+}
