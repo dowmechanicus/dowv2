@@ -7,7 +7,7 @@ export default function Pagination({ totalElements }: { totalElements: number })
 	const offset = +page === 1 ? 0 : (+page - 1) * 25;
 
 	return (
-		<div className="divide-y divide-gray-500">
+		<div className="">
 			<div className="px-6 py-3 text-gray-500 font-medium text-xs text-left tracking-wider">
 				{/* Only visible on e.g. mobile devices */}
 				<div className="flex-1 flex justify-between sm:hidden">
@@ -26,7 +26,7 @@ export default function Pagination({ totalElements }: { totalElements: number })
 				</div>
 				<div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
 					<div>
-						<p className="text-sm text-gray-700">
+						<p className="text-sm">
 							Showing <span className="font-medium">{offset + 1}</span> to{' '}
 							<span className="font-medium">{offset + 25}</span> of{' '}
 							<span className="font-medium">{totalElements}</span> results
