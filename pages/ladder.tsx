@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import Ratings from '@/components/ratings';
 import { MainRace } from '@/lib/helpers';
 import { DowTable, DefaultField } from '@/components/table';
+import Link from 'next/link';
 
 interface Player {
 	relic_id: number;
@@ -73,10 +74,12 @@ export default Ladder;
 
 function PlayerName({ player }: { player: Player }) {
 	return (
-		<div className="flex flex-col">
-			<span>{player.last_steam_name}</span>
-			<span className="text-xs text-gray-400">{player.alias ?? 'No known alias'}</span>
-		</div>
+		<Link passHref={true} href={`/players/${player.relic_id}`}>
+			<div className="flex flex-col cursor-pointer">
+				<span>{player.last_steam_name}</span>
+				<span className="text-xs text-gray-400">{player.alias ?? 'No known alias'}</span>
+			</div>
+		</Link>
 	);
 }
 
