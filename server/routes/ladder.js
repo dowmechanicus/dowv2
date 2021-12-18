@@ -1,17 +1,10 @@
-import { query } from '@/lib/db';
-import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
+const express = require('express')
+const router = express.Router()
 
-interface Player {
-  cr: number;
-  glicko_rating: number;
-  last_steam_name: string;
-  main_race: number;
-  rating: number;
-  rd: number;
-  relic_id: number;
-}
+const query = require('../db')
+const { EntityNotFoundError } = require('../errors')
 
-const winrate: string = `
+const winrate = `
 SELECT alias, player_id, SUM(CASE WHEN win=1 THEN 1 ELSE 0 END) AS wins, COUNT(*) as games FROM 
   (
     SELECT m2.alias, m2.player_id, m2.win, m2.team_id, m3.ranked
@@ -22,7 +15,7 @@ SELECT alias, player_id, SUM(CASE WHEN win=1 THEN 1 ELSE 0 END) AS wins, COUNT(*
 GROUP BY player_id
 ORDER BY wins DESC`;
 
-const top25: string = `
+const top25 = `
 SELECT *,
   ROUND(glicko_rating) as rating,
   ROUND(ratings_deviation) as rd,
@@ -33,21 +26,21 @@ FROM players
 ORDER BY cr DESC
 LIMIT 25`;
 
-
-const handler: NextApiHandler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
-
+router.get('/', async (req, res) => {
   try {
-    const players = await query(top25) as Player[];
-    const player_ids: number[] = players.map(player => player.relic_id);
+    const players = await query(top25);
+    const player_ids = players.map(player => player.relic_id);
     const _winrate = winrate.replace('?', player_ids.map(x => '?').join(','));
-    const winrates: any = await query(_winrate, [...player_ids]);
+    const winrates = await query(_winrate, [...player_ids]);
 
     return res.json({ players, winrates })
-  } catch (error: any) {
-    res.status(500).json({ message: error.message })
+  } catch (error) {
+    if (error instanceof EntityNotFoundError) {
+      res.status(404).end();
+    } else {
+      res.status(500).json({ error: error.message })
+    }
   }
-}
+})
 
-export default handler;
-
-
+module.exports = router
