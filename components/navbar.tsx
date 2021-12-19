@@ -22,6 +22,9 @@ const Navbar = () => {
 					<Link href={'/ladder'}>
 						<a className="btn btn-ghost btn-sm rounded-btn">Ladder</a>
 					</Link>
+					<Link href={'/statistics'}>
+						<a className="btn btn-ghost btn-sm rounded-btn">Statistics</a>
+					</Link>
 				</div>
 			</div>
 			<div className="flex-none">

@@ -26,11 +26,12 @@ INNER JOIN heroes h ON h.id = m.hero
 WHERE rating IS NOT NULL GROUP BY race_name
 ORDER BY counts DESC;`;
 
-const get_hero_popularity = `SELECT hero, h.hero_name, COUNT(*) as counts FROM matchups m 
-INNER JOIN heroes h ON h.id = m.hero 
-WHERE rating IS NOT NULL
+const get_hero_popularity = `SELECT hero, h.hero_name, h.race_name, COUNT(*) as counts FROM matchups m 
+INNER JOIN heroes h ON h.id = m.hero
+INNER JOIN matches_dev md ON md.id = m.match_id 
+WHERE rating IS NOT NULL AND md.ranked = 1
 GROUP BY hero
-ORDER BY counts DESC;`;
+ORDER BY race_name ASC;`;
 
 const get_map_popularity = `SELECT map_id, m.screen_name, m.player_count, COUNT(*) as counts FROM matches_dev md 
 INNER JOIN maps m ON m.id = md.map_id
