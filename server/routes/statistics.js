@@ -1,10 +1,11 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router();
 const redis = require('redis');
-const query = require('../db')
+const query = require('../db');
+const logger = require('../logger');
 
 const redisClient = redis.createClient({
-  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT ?? 6379}`,
+  url: `redis://${process.env.REDIS_HOST ?? 'localhost'}:${process.env.REDIS_PORT ?? 6379}`,
 });
 (async () => {
   await redisClient.connect()
@@ -12,13 +13,19 @@ const redisClient = redis.createClient({
 
 const checkCache = (cacheKey) => async (req, res, next) => {
 
-  const { originalUrl } = req;
-  const cached = await redisClient.get(cacheKey ?? originalUrl);
+  try {
+    const { originalUrl } = req;
+    const cached = await redisClient.get(cacheKey ?? originalUrl);
 
-  if (!cached) {
-    return next();
-  } else {
-    return res.json({ ...JSON.parse(cached) })
+    if (!cached) {
+      logger.debug('No cache hit -> next()', { service: 'statistics' })
+      return next();
+    } else {
+      logger.debug('Cache hit -> returning cached result', { service: 'statistics' })
+      return res.json({ ...JSON.parse(cached) })
+    }
+  } catch (error) {
+    logger.error(error.message, { service: 'statistics' })
   }
 }
 
@@ -143,8 +150,10 @@ router.get('/', checkCache('statistics'), async (req, res) => {
     }
 
     await redisClient.setEx('statistics', 60, JSON.stringify(result));
+    logger.debug('Adding statistics to the cache', { service: 'statistics' })
     res.json({ ...result })
   } catch (error) {
+    logger.error(error, { service: 'statistics' })
     res.status(500).json({ message: error.message })
   }
 

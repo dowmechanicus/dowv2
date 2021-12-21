@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const query = require('../db')
-const { EntityNotFoundError } = require('../errors')
+const { EntityNotFoundError } = require('../errors');
+const logger = require('../logger');
 
 const winrate = `
 SELECT alias, player_id, SUM(CASE WHEN win=1 THEN 1 ELSE 0 END) AS wins, COUNT(*) as games FROM 
@@ -35,6 +36,7 @@ router.get('/', async (req, res) => {
 
     return res.json({ players, winrates })
   } catch (error) {
+    logger.error(error, { service: 'ladder' });
     if (error instanceof EntityNotFoundError) {
       res.status(404).end();
     } else {

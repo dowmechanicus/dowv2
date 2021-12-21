@@ -23,11 +23,11 @@ Chart.register(
 const Statistics = ({ statistics }: { statistics: Statistics }) => {
 	return (
 		<div className="w-8/12 mx-auto flex flex-col">
-			<HeroPopularity data={statistics.hero_win_ratio} />
-			<FactionPopularity data={statistics.faction_popularity} />
-			<MapPopularity data={statistics.map_popularity} />
-			<GameLengthDistribution data={statistics.game_length} />
-			<FactionWinRatioOverGameLength data={statistics.faction_win_ratio_over_game_length} />
+			<HeroPopularity data={statistics?.hero_win_ratio} />
+			<FactionPopularity data={statistics?.faction_popularity} />
+			<MapPopularity data={statistics?.map_popularity} />
+			<GameLengthDistribution data={statistics?.game_length} />
+			<FactionWinRatioOverGameLength data={statistics?.faction_win_ratio_over_game_length} />
 		</div>
 	);
 };
@@ -345,6 +345,11 @@ export async function getServerSideProps() {
 		};
 	} catch (error) {
 		console.error(error);
+		return {
+			props: {
+				statistics: undefined,
+			},
+		};
 	}
 }
 

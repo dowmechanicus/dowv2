@@ -4,6 +4,7 @@ const axios = require('axios')
 
 const query = require('../db')
 const { EntityNotFoundError } = require('../errors')
+const logger = require('../logger')
 
 const extended_player_details = `
 SELECT *, p.steam_id, SUM(CASE WHEN win=1 THEN 1 ELSE 0 END) AS wins, COUNT(*) AS games, ROUND(glicko_rating - (1.10 * ratings_deviation)) as cr FROM (
@@ -42,7 +43,6 @@ SELECT rank FROM (
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
-
   try {
     const steamAPIKey = process.env.STEAM_API_KEY;
 
@@ -79,10 +79,10 @@ router.get('/:id', async (req, res) => {
       }
     })
   } catch (error) {
+    logger.error(error, { service: 'players' });
     if (error instanceof EntityNotFoundError) {
       res.status(404).end();
     } else {
-      console.error(error)
       res.status(500).json({ error: error.message })
     }
   }
@@ -98,6 +98,7 @@ router.get('/', async (req, res) => {
       totalElements: totalElements[0]?.totalElements
     })
   } catch (error) {
+    logger.error(error, { service: 'players' });
     res.status(500).json({ error: error.message })
   }
 })

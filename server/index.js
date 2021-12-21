@@ -1,21 +1,20 @@
 const express = require('express')
-const morgan = require('morgan')
+const morganMiddleware = require('./morgan');
+const logger = require('./logger');
 const app = express();
 
 const matches = require('./routes/matches')
 const ladder = require('./routes/ladder')
 const players = require('./routes/players')
-const statistics = require('./routes/statistics')
+const statistics = require('./routes/statistics');
 
 const port = process.env.PORT ?? 4000;
 
-app.use(morgan('dev'))
+app.use(morganMiddleware)
 
 app.use('/matches', matches)
 app.use('/ladder', ladder)
 app.use('/players', players)
 app.use('/statistics', statistics)
 
-app.listen(port, () => {
-  console.log('Listening on port:', port)
-});
+app.listen(port, () => logger.info(`Listening on port: ${port}`));
