@@ -2,38 +2,333 @@ import {
 	ArcElement,
 	BarElement,
 	CategoryScale,
-	Chart as ChartJS,
-	Legend,
+	Chart,
 	LinearScale,
-	Title,
-	Tooltip,
+	LineElement,
+	PointElement,
 } from 'chart.js';
-import { Pie, Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
+import ChartDataLabels, { Context } from 'chartjs-plugin-datalabels';
 
-ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
+Chart.register(
+	ArcElement,
+	CategoryScale,
+	ChartDataLabels,
+	LinearScale,
+	BarElement,
+	PointElement,
+	LineElement
+);
 
 const Statistics = ({ statistics }: { statistics: Statistics }) => {
 	return (
-		<div>
+		<div className="w-8/12 mx-auto flex flex-col">
+			<HeroPopularity data={statistics.hero_win_ratio} />
 			<FactionPopularity data={statistics.faction_popularity} />
+			<MapPopularity data={statistics.map_popularity} />
+			<GameLengthDistribution data={statistics.game_length} />
+			<FactionWinRatioOverGameLength data={statistics.faction_win_ratio_over_game_length} />
 		</div>
 	);
 };
 
-const FactionPopularity = ({ data }: { data: FactionPopularity[] }) => {
-	const pieData = {
-		labels: [...data.map((faction) => faction.race_name)],
+const HeroPopularity = ({ data }: { data: HeroWinRatio[] }) => {
+	const labels: string[] = data.map((hero) => hero.hero_name);
+	const counts: number[] = data.map((hero) => parseInt(hero.counts));
+	const options = {
+		scales: {
+			y: {
+				title: {
+					enabled: true,
+					display: true,
+					text: '# Games / Win ratio (%)',
+				},
+			},
+		},
+	};
+
+	const _data: any = {
+		labels,
 		datasets: [
 			{
-				data: [...data.map((faction) => faction.counts)],
-				backgroundColor: ['#2563EB', '#7C3AED', '#D97706', '#059669', '#FDE68A', '#DC2626', '#4B5563'],
+				data: counts,
+				backgroundColor: [
+					'#7C3AED',
+					'#7C3AED',
+					'#7C3AED',
+					'#D97706',
+					'#D97706',
+					'#D97706',
+					'#FCD34D',
+					'#FCD34D',
+					'#FCD34D',
+					'#4B5563',
+					'#4B5563',
+					'#4B5563',
+					'#059669',
+					'#059669',
+					'#059669',
+					'#2563EB',
+					'#2563EB',
+					'#2563EB',
+					'#DC2626',
+					'#DC2626',
+					'#DC2626',
+				],
+				borderColor: [
+					'#7C3AED',
+					'#7C3AED',
+					'#7C3AED',
+					'#D97706',
+					'#D97706',
+					'#D97706',
+					'#FCD34D',
+					'#FCD34D',
+					'#FCD34D',
+					'#4B5563',
+					'#4B5563',
+					'#4B5563',
+					'#059669',
+					'#059669',
+					'#059669',
+					'#2563EB',
+					'#2563EB',
+					'#2563EB',
+					'#DC2626',
+					'#DC2626',
+					'#DC2626',
+				],
+				datalabels: {
+					backgroundColor: function (context: Context) {
+						return context.dataset.backgroundColor;
+					},
+					formatter: function (value: number, context: Context) {
+						return '';
+					},
+				},
+			},
+			{
+				data: data.map((hero) => hero.wins),
+				backgroundColor: [
+					'#C4B5FD',
+					'#C4B5FD',
+					'#C4B5FD',
+					'#FBBF24',
+					'#FBBF24',
+					'#FBBF24',
+					'#FDE68A',
+					'#FDE68A',
+					'#FDE68A',
+					'#D1D5DB',
+					'#D1D5DB',
+					'#D1D5DB',
+					'#6EE7B7',
+					'#6EE7B7',
+					'#6EE7B7',
+					'#93C5FD',
+					'#93C5FD',
+					'#93C5FD',
+					'#FCA5A5',
+					'#FCA5A5',
+					'#FCA5A5',
+				],
+				datalabels: {
+					rotation: -90,
+					color: 'white',
+					anchor: 'end',
+					align: 'end',
+					formatter: function (value: number, context: Context) {
+						const winrate = Math.round((value / counts[context.dataIndex]) * 100);
+						return `${winrate} %`;
+					},
+				},
 			},
 		],
 	};
 
 	return (
-		<div>
-			<Pie data={pieData} />
+		<div className="card">
+			<div className="card-body">
+				<div className="card-title uppercase">hero popularity / win ratio</div>
+				<Bar data={_data} options={options} />
+			</div>
+		</div>
+	);
+};
+
+const FactionPopularity = ({ data }: { data: FactionPopularity[] }) => {
+	const labels: string[] = data.map((race) => race.race_name);
+	const _data: any = {
+		labels,
+		datasets: [
+			{
+				data: data.map((race) => race.counts),
+				backgroundColor: ['#7C3AED', '#D97706', '#FCD34D', '#4B5563', '#059669', '#2563EB', '#DC2626'],
+				borderColor: ['#7C3AED', '#D97706', '#FCD34D', '#4B5563', '#059669', '#2563EB', '#DC2626'],
+				datalabels: {
+					backgroundColor: function (context: Context) {
+						return context.dataset.backgroundColor;
+					},
+					formatter: function (value: number, context: Context) {
+						return '';
+					},
+				},
+			},
+		],
+	};
+	const options = {
+		scales: {
+			y: {
+				title: {
+					display: true,
+					text: '# Games',
+				},
+			},
+		},
+	};
+
+	return (
+		<div className="card">
+			<div className="card-body">
+				<div className="card-title uppercase">faction popularity</div>
+			</div>
+			<Bar data={_data} options={options} />
+		</div>
+	);
+};
+
+const MapPopularity = ({ data }: { data: MapPopularity[] }) => {
+	data.sort((a, b) => parseInt(b.counts) - parseInt(a.counts));
+	const max = parseInt(data[0].counts); // Not every map should be display - need at least 10% of max value
+	const _data = data.filter((map) => parseInt(map.counts) > max * 0.1);
+	const labels = _data.map((map) => map.screen_name);
+
+	const options: any = {
+		scales: {
+			x: {
+				title: {
+					display: true,
+					text: '# Games',
+				},
+			},
+		},
+		indexAxis: 'y',
+	};
+	const barData = {
+		labels,
+		datasets: [
+			{
+				data: _data.map((map) => map.counts),
+				backgroundColor: ['#2563EB'],
+				datalabels: {
+					color: 'white',
+				},
+			},
+		],
+	};
+	return (
+		<div className="card">
+			<div className="card-body">
+				<div className="card-title uppercase">map popularity</div>
+				<Bar data={barData} options={options} />
+			</div>
+		</div>
+	);
+};
+
+const GameLengthDistribution = ({ data }: { data: GameLength[] }) => {
+	const labels = data.map((gamelength) => gamelength.game_length);
+	const options = {
+		scales: {
+			y: {
+				title: {
+					display: true,
+					text: '# Games',
+				},
+			},
+		},
+	};
+
+	const _data: any = {
+		labels,
+		datasets: [
+			{
+				data: data.map((gamelength) => gamelength.counts),
+				borderColor: ['#2563EB'],
+				tension: 0.1,
+			},
+		],
+	};
+	return (
+		<div className="card">
+			<div className="card-body">
+				<div className="card-title uppercase">Game Length distribution</div>
+				<Line data={_data} options={options} />
+			</div>
+		</div>
+	);
+};
+
+const FactionWinRatioOverGameLength = ({ data }: { data: FactionWinRatioOverGameLength[] }) => {
+	const labels = Array.from(new Set(data.map((faction) => faction.game_length)));
+
+	const barData = data.reduce((acc, x) => {
+		(acc[x.race_name] = acc[x.race_name] || []).push(x);
+		return acc;
+	}, {} as any);
+
+	const backgroundColor = (raceKey: string): string[] => {
+		switch (raceKey) {
+			case 'Chaos Space Marines':
+				return ['#7C3AED'];
+			case 'Eldar':
+				return ['#D97706'];
+			case 'Imperial Guard':
+				return ['#FDE68A'];
+			case 'Ordo Malleus':
+				return ['#4B5563'];
+			case 'Orks':
+				return ['#059669'];
+			case 'Space Marines':
+				return ['#2563EB'];
+			case 'Tyranids':
+				return ['#DC2626'];
+			default:
+				return [];
+		}
+	};
+
+	const options = {
+		scales: {
+			y: {
+				title: {
+					display: true,
+					text: 'Win ratio (%)',
+				},
+			},
+		},
+	};
+
+	const _data = {
+		labels,
+		datasets: Object.keys(barData).map((raceKey) => ({
+			data: barData[raceKey].map((race: FactionWinRatioOverGameLength) =>
+				Math.round((race.win_ratio as unknown as number) * 100)
+			),
+			backgroundColor: backgroundColor(raceKey),
+			datalabels: {
+				formatter: function (value: number, context: Context) {
+					return '';
+				},
+			},
+		})),
+	};
+	return (
+		<div className="card">
+			<div className="card-body">
+				<div className="card-title uppercase">Faction win ratio over game length</div>
+				<Bar data={_data} options={options} />
+			</div>
 		</div>
 	);
 };
@@ -58,44 +353,50 @@ export default Statistics;
 interface HeroPopularity {
 	hero: number;
 	hero_name: string;
-	counts: number;
+	race_name: string;
+	counts: string;
 }
 
 interface HeroWinRatio {
 	hero: number;
 	hero_name: string;
-	counts: number;
+	counts: string;
 	wins: string;
 }
 
 interface FactionPopularity {
 	race_name: string;
-	counts: number;
+	counts: string;
 }
 
 interface FactionWinRatio {
 	race_name: string;
-	counts: number;
+	counts: string;
 	wins: string;
+}
+
+interface FactionWinRatioOverGameLength extends FactionWinRatio {
+	game_length: string;
+	win_ratio: string;
 }
 
 interface MapPopularity {
 	map_id: number;
 	screen_name: string;
 	player_count: number;
-	counts: number;
+	counts: string;
 }
 
 interface GameLength {
 	game_length: string;
-	counts: number;
+	counts: string;
 }
 
 interface Statistics {
-	hero_popularity: HeroPopularity[];
 	hero_win_ratio: HeroWinRatio[];
 	faction_popularity: FactionPopularity[];
 	faction_win_ratio: FactionWinRatio[];
+	faction_win_ratio_over_game_length: FactionWinRatioOverGameLength[];
 	map_popularity: MapPopularity[];
 	game_length: GameLength[];
 }

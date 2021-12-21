@@ -18,6 +18,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "chart.js": "^3.6.2",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "daisyui": "^1.16.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
