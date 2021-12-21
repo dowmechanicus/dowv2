@@ -149,7 +149,7 @@ router.get('/', checkCache('statistics'), async (req, res) => {
       game_length
     }
 
-    await redisClient.setEx('statistics', 60, JSON.stringify(result));
+    await redisClient.setEx('statistics', 86400, JSON.stringify(result));
     logger.debug('Adding statistics to the cache', { service: 'statistics' })
     res.json({ ...result })
   } catch (error) {
