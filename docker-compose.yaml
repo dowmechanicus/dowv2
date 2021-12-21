@@ -4,43 +4,43 @@ services:
     image: mysql:5.5
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: esl
-      MYSQL_PASSWORD: esl
-      MYSQL_DATABASE: esl
-      MYSQL_USER: esl-user
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
     ports:
-      - 3306:3306
+      - ${MYSQL_PORT}:${MYSQL_PORT}
   redis:
     image: redis:6-alpine
     restart: always
     ports:
-      - 6379:6379
+      - ${REDIS_PORT}:${REDIS_PORT}
   web:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
     environment:
-      PORT: 3000
-      API_URL: http://server:4000
-      NODE_ENV: production
+      PORT: ${FRONTEND_PORT}
+      API_URL: http://server:${API_PORT}
+      NODE_ENV: ${NODE_ENV}
   
   server:
     build:
       context: ./server
       dockerfile: ./Dockerfile
     ports:
-      - 4000:4000
+      - ${API_PORT}:${API_PORT}
     environment:
-      PORT: 4000
+      PORT: ${API_PORT}
       REDIS_HOST: redis
-      REDIS_PORT: 6379
+      REDIS_PORT: ${REDIS_PORT}
       MYSQL_HOST: mysql
-      MYSQL_DATABASE: esl
-      MYSQL_USERNAME: esl-user
-      MYSQL_PASSWORD: esl
-      MYSQL_PORT: 3306
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PORT: ${MYSQL_PORT}
     depends_on:
       - mysql
       - redis
