@@ -3,7 +3,9 @@ const router = express.Router()
 const redis = require('redis');
 const query = require('../db')
 
-const redisClient = redis.createClient(6379);
+const redisClient = redis.createClient({
+  url: `redis://${process.env.REDIS_HOST}:${process.env.REDIS_PORT ?? 6379}`,
+});
 (async () => {
   await redisClient.connect()
 })();

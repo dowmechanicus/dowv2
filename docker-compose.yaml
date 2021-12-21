@@ -39,4 +39,22 @@ services:
       MYSQL_PORT: 3306
       BASE_PATH:
       API_URL: http://localhost
+  
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    ports:
+      - 4000:4000
+    environment:
+      PORT: 4000
+      REDIS_HOST: host.docker.internal
+      REDIS_PORT: 6379
+      MYSQL_HOST: host.docker.internal
+      MYSQL_DATABASE: esl
+      MYSQL_USERNAME: esl-user
+      MYSQL_PASSWORD: esl
+      MYSQL_PORT: 3306
+      BASE_PATH:
+      API_URL: http://localhost
 
