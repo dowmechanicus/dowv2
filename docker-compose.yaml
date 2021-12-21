@@ -41,3 +41,6 @@ services:
       MYSQL_USERNAME: esl-user
       MYSQL_PASSWORD: esl
       MYSQL_PORT: 3306
+    depends_on:
+      - mysql
+      - redis
