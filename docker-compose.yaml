@@ -6,14 +6,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        BASE_PATH: /v2
+        BASE_PATH: ${BASE_PATH}
     ports:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
     environment:
       PORT: ${FRONTEND_PORT}
       API_URL: http://localhost:${API_PORT}
       NODE_ENV: ${NODE_ENV}
-      BASE_PATH: /v2
+      BASE_PATH: ${BASE_PATH}
   
   server:
     network_mode: host
