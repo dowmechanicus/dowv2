@@ -9,8 +9,9 @@ services:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
     environment:
       PORT: ${FRONTEND_PORT}
-      API_URL: http://server:${API_PORT}
+      API_URL: http://localhost:${API_PORT}
       NODE_ENV: ${NODE_ENV}
+      BASE_PATH: /v2
   
   server:
     network_mode: host
