@@ -90,7 +90,7 @@ router.get('/:id', async (req, res) => {
         wins_per_map,
         wins_per_hero,
         rank: rank[0]?.rank ?? 0,
-        steam_stats: steam_stats?.response?.players[0] ?? {}
+        steam_stats: steam_stats ?? {}
       }
     })
   } catch (error) {
