@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const logger = require('./logger')
 
 const pool = mysql.createPool({
   database: process.env.MYSQL_DATABASE ?? 'esl',
@@ -11,9 +12,11 @@ const pool = mysql.createPool({
 });
 
 function query(query, params) {
+  logger.debug(`SQL Query: ${query}\nSQL Query Parameters: ${params}`);
   return new Promise((resolve, reject) => {
     pool.query(query, params, (error, results, fields) => {
       if (error) {
+        logger.error(`SQL Query error: ${error}\nResults: ${results}`);
         reject(error);
       }
 
