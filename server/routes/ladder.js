@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
   try {
     const players = await query(top25);
     const player_ids = players.map(player => player.relic_id);
-    const _winrate = winrate.replace('?', player_ids.map(x => '?').join(','));
+    const _winrate = winrate.replace('?', player_ids.map(() => '?').join(','));
     const winrates = await query(_winrate, [...player_ids]);
 
     return res.json({ players, winrates })

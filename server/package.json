@@ -5,7 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js"
+    "start": "nodemon -r dotenv/config index.js",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +21,8 @@
     "redis": "^4.0.1",
     "serverless-mysql": "^1.5.4",
     "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0"
   }
 }

@@ -14,7 +14,7 @@ const pool = mysql.createPool({
 function query(query, params) {
   logger.debug(`SQL Query: ${query}\nSQL Query Parameters: ${params}`);
   return new Promise((resolve, reject) => {
-    pool.query(query, params, (error, results, fields) => {
+    pool.query(query, params, (error, results) => {
       if (error) {
         logger.error(`SQL Query error: ${error}\nResults: ${results}`);
         reject(error);

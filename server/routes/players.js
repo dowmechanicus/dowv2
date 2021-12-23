@@ -38,18 +38,37 @@ SELECT rank FROM (
     SELECT relic_id, last_steam_name, ROUND(glicko_rating - (1.10 * ratings_deviation)) as cr FROM players ORDER BY cr DESC
   ) a, (SELECT @rank:=0) b
 ) c WHERE relic_id = ?;
-`
+`;
+
+const get_players_steam_stats = async (steam_id) => {
+  const steamAPIKey = process.env.STEAM_API_KEY;
+
+  if (!steamAPIKey) {
+    logger.error('Steam API Key not found', { service: 'players' });
+    return null;
+  }
+
+  if (!steam_id) {
+    return null;
+  }
+
+  const { data: steam_stats } = await axios(
+    'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2',
+    {
+      params: {
+        key: steamAPIKey,
+        steamids: steam_id
+      }
+    }
+  );
+
+  return steam_stats?.response?.players[0];
+}
 
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const steamAPIKey = process.env.STEAM_API_KEY;
-
-    if (!steamAPIKey) {
-      throw ('Steam API Key not found');
-    }
-
     const player = await query(extended_player_details, [id, id]);
     const wins_per_map = await query(player_wins_per_map, [id]);
     const wins_per_hero = await query(player_wins_per_hero, [id]);
@@ -59,15 +78,11 @@ router.get('/:id', async (req, res) => {
       throw new EntityNotFoundError('Player');
     }
 
-    const { data: steam_stats } = await axios(
-      'http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2',
-      {
-        params: {
-          key: steamAPIKey,
-          steamids: player[0]?.steam_id
-        }
-      }
-    );
+    /**
+     * Let's not call the Steam API everytime we check the players stats.
+     * Call Redis first and check if his stats were cached before
+     */
+    const steam_stats = await get_players_steam_stats(player[0]?.steam_id);
 
     res.json({
       data: {
