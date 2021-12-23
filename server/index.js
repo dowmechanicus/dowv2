@@ -8,6 +8,11 @@ const ladder = require('./routes/ladder')
 const players = require('./routes/players')
 const statistics = require('./routes/statistics');
 
+process.on('uncaughtException', (event) => {
+  logger.error(event);
+  process.exit(1);
+});
+
 const port = process.env.PORT ?? 4000;
 
 app.use(morganMiddleware)
