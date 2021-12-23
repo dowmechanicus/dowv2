@@ -1,33 +1,8 @@
 const express = require('express')
 const router = express.Router();
-const redis = require('redis');
 const query = require('../db');
 const logger = require('../logger');
-
-const redisClient = redis.createClient({
-  url: `redis://${process.env.REDIS_HOST ?? 'localhost'}:${process.env.REDIS_PORT ?? 6379}`,
-});
-(async () => {
-  await redisClient.connect()
-})();
-
-const checkCache = (cacheKey) => async (req, res, next) => {
-
-  try {
-    const { originalUrl } = req;
-    const cached = await redisClient.get(cacheKey ?? originalUrl);
-
-    if (!cached) {
-      logger.debug('No cache hit -> next()', { service: 'statistics' })
-      return next();
-    } else {
-      logger.debug('Cache hit -> returning cached result', { service: 'statistics' })
-      return res.json({ ...JSON.parse(cached) })
-    }
-  } catch (error) {
-    logger.error(error.message, { service: 'statistics' })
-  }
-}
+const { checkCache, setCache } = require('../middleware/checkCache');
 
 const get_faction_popularity = `
 SELECT h.race_name, COUNT(*) as counts FROM matchups m 
@@ -149,7 +124,7 @@ router.get('/', checkCache('statistics'), async (req, res) => {
       game_length
     }
 
-    await redisClient.setEx('statistics', 86400, JSON.stringify(result));
+    await setCache('statistics', 86400, JSON.stringify(result));
     logger.debug('Adding statistics to the cache', { service: 'statistics' })
     res.json({ ...result })
   } catch (error) {
