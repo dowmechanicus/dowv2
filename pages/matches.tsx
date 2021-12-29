@@ -19,7 +19,7 @@ const Matches = ({ data: matches, totalElements }: PageResponse<Match>) => {
         matches.map((match: Match) => (
           <tr
             key={match.id}
-            className="hover:bg-gray-300 transition-colors hover:cursor-pointer"
+            className='hover:bg-gray-300 transition-colors hover:cursor-pointer'
             onClick={() => show_match(match.id)}
           >
             <MatchRow match={match} />
@@ -27,7 +27,7 @@ const Matches = ({ data: matches, totalElements }: PageResponse<Match>) => {
         ))
       ) : (
         <tr>
-          <td colSpan={4} className="text-center">
+          <td colSpan={4} className='text-center'>
             No data available
           </td>
         </tr>
@@ -38,7 +38,8 @@ const Matches = ({ data: matches, totalElements }: PageResponse<Match>) => {
 
 export async function getServerSideProps({ query: { page = 1 } }) {
   const res = await fetch(`${process.env.API_URL}/matches?offset=${page}`);
-  const { data = [], totalElements = 0 }: PageResponse<Match> = await res.json();
+  const { data = [], totalElements = 0 }: PageResponse<Match> =
+    await res.json();
 
   return {
     props: {
@@ -54,7 +55,9 @@ const MatchRow = ({ match }: { match: Match }) => {
   return (
     <>
       <DefaultField>
-        <span className="text-xs text-gray-400">{new Date(match.unix_utc_time * 1000).toLocaleString()}</span>
+        <span className='text-xs text-gray-400'>
+          {new Date(match.unix_utc_time * 1000).toLocaleString()}
+        </span>
       </DefaultField>
       <DefaultField>
         <PlayerField
@@ -79,9 +82,11 @@ const MatchRow = ({ match }: { match: Match }) => {
         />
       </DefaultField>
       <DefaultField>
-        <div className="flex flex-col">
+        <div className='flex flex-col'>
           <span>{match.map_name}</span>
-          <span className="text-xs text-gray-400">{ticks2time(match.ticks)}</span>
+          <span className='text-xs text-gray-400'>
+            {ticks2time(match.ticks)}
+          </span>
         </div>
       </DefaultField>
     </>
@@ -106,11 +111,11 @@ const PlayerField = ({
   winner: boolean;
 }) => {
   return (
-    <div className="flex flex-row items-left gap-8">
-      <div className="flex flex-col items-left">
+    <div className='flex flex-row items-left gap-8'>
+      <div className='flex flex-col items-left'>
         <Hero size={50} hero={hero} />
       </div>
-      <div className="flex flex-col items-left">
+      <div className='flex flex-col items-left'>
         <span>{name}</span>
         <Ratings rating={{ glicko_rating: rating, rd: rd }} />
         <Ratings rating={{ glicko_rating: outcome_rating, rd: outcome_rd }} />
