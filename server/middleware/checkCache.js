@@ -20,14 +20,14 @@ const checkCache = (cacheKey) => async (req, res, next) => {
     const cached = await redisClient.get(cacheKey ?? originalUrl);
 
     if (!cached) {
-      logger.debug('No cache hit -> next()', { service: 'statistics' })
+      logger.debug('No cache hit -> next()', { service: cacheKey ?? 'unknown' })
       return next();
     } else {
-      logger.debug('Cache hit -> returning cached result', { service: 'statistics' })
+      logger.debug('Cache hit -> returning cached result', { service: cacheKey ?? 'unknown' })
       return res.json({ ...JSON.parse(cached) })
     }
   } catch (error) {
-    logger.error(error.message, { service: 'statistics' })
+    logger.error(error.message, { service: cacheKey ?? 'unknown' })
   }
 }
 

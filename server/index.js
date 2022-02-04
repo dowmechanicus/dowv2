@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const morganMiddleware = require('./morgan');
 const logger = require('./logger');
 const app = express();
@@ -16,6 +17,7 @@ process.on('uncaughtException', (event) => {
 const port = process.env.PORT ?? 4000;
 
 app.use(morganMiddleware)
+app.use(cors())
 
 app.use('/matches', matches)
 app.use('/ladder', ladder)

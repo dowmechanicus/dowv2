@@ -5,6 +5,7 @@ const axios = require('axios')
 const query = require('../db')
 const { EntityNotFoundError } = require('../errors')
 const logger = require('../logger')
+const { checkCache, setCache } = require('../middleware/checkCache');
 
 const extended_player_details = `
 SELECT *, p.steam_id, SUM(CASE WHEN win=1 THEN 1 ELSE 0 END) AS wins, COUNT(*) AS games, ROUND(glicko_rating - (1.10 * ratings_deviation)) as cr FROM (
@@ -65,7 +66,7 @@ const get_players_steam_stats = async (steam_id) => {
   return steam_stats?.response?.players[0];
 }
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', checkCache(), async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -84,7 +85,7 @@ router.get('/:id', async (req, res) => {
      */
     const steam_stats = await get_players_steam_stats(player[0]?.steam_id);
 
-    res.json({
+    const player_details = {
       data: {
         player: { ...player[0] },
         wins_per_map,
@@ -92,7 +93,14 @@ router.get('/:id', async (req, res) => {
         rank: rank[0]?.rank ?? 0,
         steam_stats: steam_stats ?? {}
       }
-    })
+    };
+
+    /**
+     * Cache player details for 10 minutes
+     */
+    setCache(req.originalUrl, 600, JSON.stringify(player_details));
+
+    res.json(player_details);
   } catch (error) {
     logger.error(error, { service: 'players' });
     if (error instanceof EntityNotFoundError) {
