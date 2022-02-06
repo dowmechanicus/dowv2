@@ -3,13 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": {
+    "email": "adeptus.noobus@gmail.com",
+    "name": "Adeptus Noobus"
+  },
+  "maintainers": [
+    "Adeptus Noobus"
+  ],
   "private": true,
   "scripts": {
     "start": "nodemon -r dotenv/config index.js",
     "lint": "eslint"
   },
   "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
