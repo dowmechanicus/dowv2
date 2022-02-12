@@ -98,7 +98,7 @@ GROUP BY race_name
 `;
 
 const get_hero_win_ratio = `
-SELECT hero, h.hero_name, h.race_name, COUNT(*) as counts, SUM(CASE WHEN m.win = 1 THEN 1 ELSE 0 END) as wins FROM matchups m 
+SELECT hero, h.short_name, h.race_name, COUNT(*) as counts, SUM(CASE WHEN m.win = 1 THEN 1 ELSE 0 END) as wins FROM matchups m 
 INNER JOIN heroes h ON h.id = m.hero 
 INNER JOIN matches_dev md ON md.id = match_id 
 WHERE rating IS NOT NULL AND md.ranked = 1 AND team_id IS NULL

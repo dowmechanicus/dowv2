@@ -26,7 +26,7 @@ const Statistics = () => {
   const [statistics, setStatistics] = useState();
   useEffect(() => {
     async function getData() {
-      const res = await axios.get('http://localhost:4000/statistics');
+      const res = await axios.get('/api/statistics');
       setStatistics(res.data);
     };
 
@@ -49,7 +49,7 @@ const Statistics = () => {
 };
 
 const HeroPopularity = ({ data }) => {
-  const labels = data.map((hero) => hero.hero_name);
+  const labels = data.map((hero) => hero.short_name);
   const counts = data.map((hero) => parseInt(hero.counts));
   const options = {
     scales: {
