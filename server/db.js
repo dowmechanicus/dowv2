@@ -13,9 +13,6 @@ const pool = mysql.createPool({
 
 pool.query('SELECT 1;', (error, results) => error ? process.exit(1) : logger.info('Successfully connected to database'));
 
-console.log(process.env.MYSQL_USER);
-console.log(process.env.MYSQL_PASSWORD);
-
 function query(query, params) {
   logger.debug(`SQL Query: ${query}\nSQL Query Parameters: ${params}`);
   return new Promise((resolve, reject) => {
