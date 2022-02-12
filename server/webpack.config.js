@@ -14,5 +14,14 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '.js'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
   }
 };
