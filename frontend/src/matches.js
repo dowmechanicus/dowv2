@@ -16,7 +16,7 @@ const Matches = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await axios.get(`http://localhost:4000/matches?offset=${page}`);
+      const response = await axios.get(`/api/matches?offset=${page}`);
       const { data: matches, totalElements } = response.data;
 
       setMatches(matches);

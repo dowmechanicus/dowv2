@@ -11,7 +11,7 @@ const Ladder = () => {
 
   useEffect(() => {
     async function getData() {
-      const res = await axios.get('http://localhost:4000/ladder');
+      const res = await axios.get('/api/ladder');
       const { players, winrates } = res.data;
 
       let _players = players ? players?.map((player) => {

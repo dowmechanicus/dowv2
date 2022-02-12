@@ -32,7 +32,7 @@ const PlayerDetails = () => {
 
   useEffect(() => {
     async function getData() {
-      const res = await axios.get(`http://localhost:4000/players/${player_id}`);
+      const res = await axios.get(`/api/players/${player_id}`);
 
       dispatch({
         type: 'SET_DATA',

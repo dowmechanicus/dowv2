@@ -9,13 +9,9 @@ const MatchDetails = () => {
   const { match_id } = useParams();
   const [match, setMatch] = useState(undefined);
 
-  console.log(match);
-
   useEffect(() => {
-    console.log('mounted');
     async function getData() {
-      console.log('getting data');
-      const res = await axios.get(`http://localhost:4000/matches/${match_id}`);
+      const res = await axios.get(`/api/matches/${match_id}`);
 
       setMatch(res.data);
     }

@@ -1,16 +1,28 @@
-import Pagination from '@/components/pagination';
-import Ratings from '@/components/ratings';
-import { MainRace } from '@/lib/helpers';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Pagination from './components/pagination';
+import Ratings from './components/ratings';
+import { MainRace } from './lib/helpers';
 import { FaDiscord } from 'react-icons/fa';
-import Image from 'next/image';
 
-const Players = ({
-  players,
-  totalElements,
-}: {
-  players: any[];
-  totalElements: number;
-}) => {
+const Players = () => {
+  const [players, setPlayers] = useState([]);
+  const [totalElements, setTotalElements] = useState(0);
+  const [page, setPage] = useState(1);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get(`/api/players?offset=${page}`);
+      const { players, totalElements } = response.data;
+
+      setPlayers(players);
+      setTotalElements(totalElements);
+    };
+    getData();
+  }, [page]);
   return (
     <div className='py-2 align-middle inline-block w-7/12 sm:px-6 lg:px-8'>
       <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
@@ -63,7 +75,7 @@ const Players = ({
                     </td>
                     <td className='px-6 py-4 whitespace-nowrap flex justify-between'>
                       {
-                        <Image
+                      <img
                           src='/forum_logo.svg'
                           width={32}
                           height={32}
