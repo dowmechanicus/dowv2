@@ -49,7 +49,7 @@ const Statistics = () => {
 };
 
 const HeroPopularity = ({ data }) => {
-  const labels = data.map((hero) => hero.short_name);
+  const labels = data.map((hero) => hero.hero_name);
   const counts = data.map((hero) => parseInt(hero.counts));
   const options = {
     scales: {
@@ -355,7 +355,7 @@ const FactionWinRatioOverGameLength = ({
       ),
       backgroundColor: backgroundColor(raceKey),
       datalabels: {
-        formatter: function(value: number, context: Context) {
+        formatter: function (value, context) {
           return '';
         },
       },
