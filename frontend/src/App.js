@@ -26,7 +26,7 @@ function App() {
       </Router>
 
       <footer className='mx-auto' data-theme='cyberpunk'>
-        Powered by Adeptus Noobus
+        Forged by Adeptus Noobus
       </footer>
     </div>
   );
