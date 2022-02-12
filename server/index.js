@@ -4,10 +4,8 @@ const morganMiddleware = require('./morgan');
 const logger = require('./logger');
 const app = express();
 
-const matches = require('./routes/matches')
-const ladder = require('./routes/ladder')
-const players = require('./routes/players')
-const statistics = require('./routes/statistics');
+const routes = require('./routes')
+
 
 process.on('uncaughtException', (event) => {
   logger.error(event);
@@ -17,11 +15,9 @@ process.on('uncaughtException', (event) => {
 const port = process.env.PORT ?? 4000;
 
 app.use(morganMiddleware)
-app.use(cors())
 
-app.use('/matches', matches)
-app.use('/ladder', ladder)
-app.use('/players', players)
-app.use('/statistics', statistics)
+app.use('/api', routes);
+app.use(express.static('web'))
+
 
 app.listen(port, () => logger.info(`Listening on port: ${port}`));
