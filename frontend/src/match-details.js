@@ -20,7 +20,7 @@ const MatchDetails = () => {
   }, [match_id]);
 
   return (
-    <div className="w-8/12 min-h-screen align-middle mx-auto flex flex-col justify-evenly">
+    <div className="w-8/12 min-h-screen align-middle mx-auto flex flex-col gap-8">
       <section className="card shadow-2xl">
         <div className="card-body">
           <h2 className="card-title">{match?.map_name ?? 'Unknown map'}</h2>
