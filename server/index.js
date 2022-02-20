@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const morganMiddleware = require('./morgan');
+const compression = require('compression');
+
 const logger = require('./logger');
 const app = express();
 
@@ -15,6 +17,9 @@ process.on('uncaughtException', (event) => {
 const port = process.env.PORT ?? 4000;
 
 app.use(morganMiddleware)
+app.use(compression({
+  filter: (req, res) => res.getHeader('content-type').includes('application/json')
+}))
 
 app.use('/api', routes);
 app.use(express.static('web'))
