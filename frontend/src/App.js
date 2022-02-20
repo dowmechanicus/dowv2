@@ -8,8 +8,23 @@ import JoinUs from './join';
 import Statistics from './statistics';
 import PlayerDetails from './player-details';
 import Navbar from './components/navbar';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (prefersDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark')
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light')
+    }
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event =>
+      event.matches ? document.documentElement.setAttribute('data-theme', 'dark') : document.documentElement.setAttribute('data-theme', 'light')
+    )
+  }, []);
+
   return (
     <div className='flex flex-col'>
       <Router>
