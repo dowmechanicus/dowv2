@@ -41,6 +41,13 @@ SELECT rank FROM (
 ) c WHERE relic_id = ?;
 `;
 
+const player_glicko_history = `
+SELECT p1_relic_id, p2_relic_id, p1_rating, p1_rd, p2_rating, p2_rd, winner, unix_utc_time, match_relic_id
+  FROM matches
+  WHERE ranked = 1 AND (p1_relic_id = ? OR p2_relic_id = ?)
+  ORDER BY unix_utc_time ASC
+`;
+
 const get_players_steam_stats = async (steam_id) => {
   const steamAPIKey = process.env.STEAM_API_KEY;
 
@@ -74,6 +81,7 @@ router.get('/:id', checkCache(), async (req, res) => {
     const wins_per_map = await query(player_wins_per_map, [id]);
     const wins_per_hero = await query(player_wins_per_hero, [id]);
     const rank = await query(player_rank, [id]);
+    const glicko_history = await query(player_glicko_history, [id, id]);
 
     if (!player || !player[0]) {
       throw new EntityNotFoundError('Player');
@@ -91,6 +99,7 @@ router.get('/:id', checkCache(), async (req, res) => {
         wins_per_map,
         wins_per_hero,
         rank: rank[0]?.rank ?? 0,
+        glicko_history,
         steam_stats: steam_stats ?? {}
       }
     };

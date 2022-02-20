@@ -1,8 +1,25 @@
 import { MainRace } from './lib/helpers';
 import { FaComments, FaDiscord, FaSteam } from 'react-icons/fa';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import {
+  CategoryScale,
+  Chart,
+  LineElement,
+  Filler,
+  Legend,
+  Tooltip,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+Chart.register(
+  CategoryScale,
+  LineElement,
+  Filler,
+  Legend,
+  Tooltip,
+);
 
 const playerDetailsReducer = (state, action) => {
   switch (action.type) {
@@ -14,6 +31,7 @@ const playerDetailsReducer = (state, action) => {
         wins_per_hero: action.payload.wins_per_hero,
         rank: action.payload.rank,
         steam_stats: action.payload.steam_stats,
+        glicko_history: action.payload.glicko_history,
       }
     default:
       throw Error('no action')
@@ -28,6 +46,7 @@ const PlayerDetails = () => {
     wins_per_hero: null,
     rank: null,
     steam_stats: null,
+    glicko_history: null,
   });
 
   useEffect(() => {
@@ -51,6 +70,7 @@ const PlayerDetails = () => {
           <PlayerDetailsHeader player={state.player} steam_stats={state.steam_stats} />
           <PlayerDetailsSummary player={state.player} rank={state.rank} />
           <PlayerMapsAndHeroStats wins_per_hero={state.wins_per_hero} wins_per_map={state.wins_per_map} />
+          <GlickoHistory glicko_history={state.glicko_history} />
         </> : <span>No data available</span>
       }
     </div>
@@ -196,6 +216,89 @@ const HeroWins = ({ race }) => {
   );
 };
 
+const GlickoHistory = ({ glicko_history }) => {
+  const { player_id } = useParams();
+
+  const glicko_with_confidence_intervals = glicko_history
+    .map(match => getGlickHistoryData(match, player_id))
+
+  const _data = {
+    labels: Array.from({ length: glicko_with_confidence_intervals.length }, (x, i) => i + 1),
+    datasets: [
+      {
+        type: 'line',
+        data: glicko_with_confidence_intervals.map(glicko => glicko.glicko_rating),
+        tension: 0,
+        borderColor: ['#2563EB'],
+        backgroundColor: '#2563EB',
+        fill: false,
+        label: 'Glicko Rating',
+        pointRadius: 0,
+        datalabels: {
+          formatter: function (value, context) {
+            return '';
+          },
+        },
+      },
+      {
+        backgroundColor: "rgb(75, 192, 255, 0.25)",
+        label: 'Glicko + 2 σ',
+        pointRadius: 0,
+        fill: 0,
+        tension: 0,
+        data: glicko_with_confidence_intervals.map(glicko => (glicko.glicko_rating + (2 * glicko.deviation))),
+        datalabels: {
+          formatter: function (value, context) {
+            return '';
+          },
+        },
+      },
+      {
+        backgroundColor: "rgb(75, 192, 255, 0.25)",
+        label: 'Glicko - 2 σ',
+        pointRadius: 0,
+        fill: 0,
+        tension: 0,
+        data: glicko_with_confidence_intervals.map(glicko => (glicko.glicko_rating - (2 * glicko.deviation))),
+        datalabels: {
+          formatter: function (value, context) {
+            return '';
+          },
+        },
+      },
+    ]
+  }
+
+  const options = {
+
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      legend: {
+        display: true
+      },
+      tooltip: {
+        display: true,
+        enabled: true,
+        position: 'nearest'
+      }
+    }
+  }
+
+
+  return <>
+    <div className="card bordered shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title">Glicko History</h2>
+        <Line data={_data} options={options} />
+      </div>
+    </div>
+  </>
+}
+
 export async function getServerSideProps({ params: { player_id = null } }) {
   try {
     const res = await fetch(`${process.env.API_URL}/players/${player_id}`);
@@ -216,6 +319,21 @@ export async function getServerSideProps({ params: { player_id = null } }) {
       props: {},
     };
   }
+}
+
+function getGlickHistoryData(match, player_id) {
+
+  const glicko_rating = match.p1_relic_id === player_id ? match.p1_rating : match.p2_rating;
+  const deviation = match.p1_relic_id === player_id ? match.p1_rd : match.p2_rd;
+  const ci67 = glicko_rating - deviation;
+  const ci95 = glicko_rating - (2 * deviation);
+
+  return ({
+    glicko_rating,
+    deviation,
+    ci67,
+    ci95
+  })
 }
 
 export default PlayerDetails;
@@ -259,5 +377,17 @@ interface WinsPerHero {
   race_name: string;
   total_games: number;
   wins: number;
+}
+
+interface GlickoHistory {
+  p1_relic_id: number;
+  p2_relic_id: number;
+  p1_rating: number;
+  p1_rd: number;
+  p2_rating: number;
+  p2_rd: number;
+  winner: number;
+  unix_utc_time: number;
+  match_relic_id: number;
 }
 */
