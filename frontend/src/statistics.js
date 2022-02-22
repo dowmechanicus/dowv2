@@ -52,6 +52,12 @@ const HeroPopularity = ({ data }) => {
   const labels = data.map((hero) => hero.hero_name);
   const counts = data.map((hero) => parseInt(hero.counts));
   const options = {
+    plugins: {
+      legend: {
+        enabled: false,
+        display: false,
+      },
+    },
     scales: {
       y: {
         title: {
@@ -211,6 +217,12 @@ const FactionPopularity = ({ data }) => {
     ],
   };
   const options = {
+    plugins: {
+      legend: {
+        enabled: false,
+        display: false,
+      },
+    },
     scales: {
       y: {
         title: {
@@ -238,6 +250,12 @@ const MapPopularity = ({ data }) => {
   const labels = _data.map((map) => map.screen_name);
 
   const options = {
+    plugins: {
+      legend: {
+        enabled: false,
+        display: false,
+      },
+    },
     scales: {
       x: {
         title: {
@@ -273,6 +291,12 @@ const MapPopularity = ({ data }) => {
 const GameLengthDistribution = ({ data }) => {
   const labels = data.map((gamelength) => gamelength.game_length);
   const options = {
+    plugins: {
+      legend: {
+        enabled: false,
+        display: false,
+      },
+    },
     scales: {
       y: {
         title: {
@@ -337,6 +361,12 @@ const FactionWinRatioOverGameLength = ({
   };
 
   const options = {
+    plugins: {
+      legend: {
+        enabled: false,
+        display: false,
+      },
+    },
     scales: {
       y: {
         title: {
