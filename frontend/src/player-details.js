@@ -2,7 +2,7 @@ import { MainRace } from './lib/helpers';
 import { FaComments, FaDiscord, FaSteam } from 'react-icons/fa';
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   CategoryScale,
   Chart,
@@ -82,6 +82,8 @@ const PlayerDetailsHeader = ({
   steam_stats,
 }
 ) => {
+  const { player_id } = useParams();
+  const navigate = useNavigate();
   return (
     <div className="card card-side bordered shadow-xl">
       <figure>
@@ -92,10 +94,15 @@ const PlayerDetailsHeader = ({
           {player.last_steam_name} (alias: {player.alias})<br />
           <span className="text-xs">{steam_stats?.personaname}</span>
         </h2>
-        <div className="flex justify-items-start gap-x-8">
-          <FaComments size={32} style={{ opacity: player.forum_id ? 1 : 0.1 }} />
-          <FaDiscord size={32} style={{ opacity: player.discord_id ? 1 : 0.1 }} />
-          <FaSteam size={32} style={{ opacity: player.steam_id ? 1 : 0.1 }} />
+        <div className="flex ">
+          <div className="flex flex-1 justify-items-start gap-x-8">
+            <FaComments size={32} style={{ opacity: player.forum_id ? 1 : 0.1 }} />
+            <FaDiscord size={32} style={{ opacity: player.discord_id ? 1 : 0.1 }} />
+            <FaSteam size={32} style={{ opacity: player.steam_id ? 1 : 0.1 }} />
+          </div>
+          <div className="flex flex-1 justify-end">
+            <button className="btn btn-info" onClick={() => navigate(`/players/${player_id}/log`)}>Match log</button>
+          </div>
         </div>
       </div>
     </div>
@@ -185,7 +192,7 @@ const PlayerMapsAndHeroStats = ({
                   <label htmlFor={map.screen_name}>{map.screen_name}</label>
                   <progress
                     id={map.screen_name}
-                    className="progress progress-info"
+                    className="progress progress-error"
                     value={map.wins}
                     max={map.total_games}
                   ></progress>
@@ -235,7 +242,7 @@ const GlickoHistory = ({ glicko_history }) => {
         label: 'Glicko Rating',
         pointRadius: 0,
         datalabels: {
-          formatter: function (value, context) {
+          formatter: function(value, context) {
             return '';
           },
         },
@@ -248,7 +255,7 @@ const GlickoHistory = ({ glicko_history }) => {
         tension: 0,
         data: glicko_with_confidence_intervals.map(glicko => (glicko.glicko_rating + (2 * glicko.deviation))),
         datalabels: {
-          formatter: function (value, context) {
+          formatter: function(value, context) {
             return '';
           },
         },
@@ -261,7 +268,7 @@ const GlickoHistory = ({ glicko_history }) => {
         tension: 0,
         data: glicko_with_confidence_intervals.map(glicko => (glicko.glicko_rating - (2 * glicko.deviation))),
         datalabels: {
-          formatter: function (value, context) {
+          formatter: function(value, context) {
             return '';
           },
         },

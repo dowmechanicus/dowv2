@@ -18,7 +18,7 @@ const port = process.env.PORT ?? 4000;
 
 app.use(morganMiddleware)
 app.use(compression({
-  filter: (req, res) => res.getHeader('content-type').includes('application/json')
+  filter: (req, res) => res.getHeader('content-type')?.includes('application/json')
 }))
 
 app.use('/api', routes);
