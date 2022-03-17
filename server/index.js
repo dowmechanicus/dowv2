@@ -17,7 +17,7 @@ process.on('uncaughtException', (event) => {
 
 const port = process.env.PORT ?? 4000;
 
-app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '8mb' }))
 app.use(morganMiddleware)
 app.use(compression({
   filter: (req, res) => res.getHeader('content-type')?.includes('application/json')
