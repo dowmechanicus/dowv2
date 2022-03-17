@@ -28,7 +28,6 @@ function query(query, params) {
     pool.query(query, params, (error, results) => {
       if (error) {
         logger.error(`SQL Query error: ${error}`, loggerMeta);
-        logger.error(`Results: ${results}`, loggerMeta);
         reject(error);
       }
 

@@ -9,6 +9,7 @@ const logger = require('../logger');
 const { createReadStream, createWriteStream } = require('fs');
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3');
 const query = require('../db');
+const { getHeroId } = require('../functions');
 const pipe = promisify(pipeline);
 const exec = promisify(require('child_process').exec);
 
@@ -42,59 +43,56 @@ Router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Only 1v1s are accepted' });
     }
 
-    if (match.replay) {
-
-      // Write file to disk so it can be processed further
-      const compressedFilePath = await Match.writeReplayFileToDisk(pathname, match.replay);
-
-      if (compressedFilePath) {
-        const extra = await Match.parseReplayFile(pathname);
-        match = {
-          ...match,
-          ...extra,
-        };
-
-        delete match.replay;
-      } else {
-        logger.error('Could not save replay file', loggerMeta);
-        return res.status(500).json({ error: 'Could not save replay file' });
-      }
-
-      // Upload
-      if (compressedFilePath) {
-        await Match.writeReplayFileToS3Bucket(compressedFilePath);
-        await Match.deleteReplayFileFromDisk(compressedFilePath);
-      }
-
-      if (Match.isReporterDataNotEqualToParsedData(match)) {
-        const error = `${match.frames} frames reported but ${extra.ticks} found in replay`;
-
-        logger.error(error, loggerMeta);
-
-        return res.status(400).json({ error });
-      }
-
-      const { ranked, league } = Match.isMatchUnranked(match);
-      if (!ranked && !league) {
-        logger.info('Match is not ranked -> ignoring', loggerMeta);
-        return res.status(200).json({ response: 'ok' });
-      } else {
-        if (league && !ranked) {
-          match.ranked = true;
-          match.league = true;
-        } else {
-          match.ranked = ranked;
-          match.league = league;
-        }
-      }
-
-      const written = await Match.writeReplayToDataBase(match);
-      if (!written) {
-        return res.status(500).json({ error: 'Replay file was not written to database' });
-      }
-    } else {
+    if (!match.replay) {
+      logger.error(`Replay data missing for match ${match.id}. Skipping`, loggerMeta);
       return res.status(400).json({ error: 'replay data missing' });
     }
+
+    // Write file to disk so it can be processed further
+    const compressedFilePath = await Match.writeReplayFileToDisk(pathname, match.replay);
+
+    if (compressedFilePath) {
+      const extra = await Match.parseReplayFile(pathname);
+      match = {
+        ...match,
+        ...extra,
+      };
+
+      delete match.replay;
+    } else {
+      logger.error('Could not save replay file to disk for downstream processing. Skipping', loggerMeta);
+      return res.status(500).json({ error: 'Could not save replay file to disk for downstream processing. Skipping' });
+    }
+
+    // Upload
+    if (compressedFilePath) {
+      await Match.writeReplayFileToS3Bucket(compressedFilePath);
+      await Match.deleteReplayFileFromDisk(compressedFilePath);
+    }
+
+    if (Match.isReporterDataNotEqualToParsedData(match)) {
+      const error = `${match.frames} frames reported but ${extra.ticks} found in replay`;
+
+      logger.error(error, loggerMeta);
+
+      return res.status(400).json({ error });
+    }
+
+    const { ranked, league } = Match.isMatchUnranked(match);
+    if (!ranked && !league) {
+      logger.info('Match is not ranked -> ignoring', loggerMeta);
+      return res.status(200).json({ response: 'ok' });
+    } else {
+      if (league && !ranked) {
+        match.ranked = true;
+        match.league = true;
+      } else {
+        match.ranked = ranked;
+        match.league = league;
+      }
+    }
+
+    await Match.writeReplayToDataBase(match);
 
 
     res.status(200).json(match);
@@ -235,22 +233,56 @@ class Match {
 
   static async writeReplayToDataBase(match) {
     try {
+      // Find the map this match was played on, so we can enter the maps id to the database
       const [{ id }] = await query('SELECT id FROM maps WHERE maps.file_name = ?', [match.map]);
 
-      if (id) {
-        await query(
-          'INSERT INTO matches_dev (session_id, map_id, md5, ticks, finished_at, ranked, winner, chat, mod_chksum, observers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-          [match.id, id, match.md5, match.frames, match?.reporter?.date, match.ranked, match.winner + 1, JSON.stringify(match.chat), parseInt(match.mod_version), JSON.stringify(match.observers)]
+      if (!id) {
+        throw new Error('Could not find map from the replay file. Skipping writing to database');
+      }
+
+      // Add the match outcome to the matches_dev table
+      const { insertId } = await query(
+        'INSERT INTO matches_dev (session_id, map_id, md5, ticks, finished_at, ranked, winner, chat, mod_chksum, observers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [match.id, id, match.md5, match.frames, match?.reporter?.date, match.ranked, match.winner + 1, JSON.stringify(match.chat), parseInt(match.mod_version), JSON.stringify(match.observers)]
+      );
+
+      if (!insertId) {
+        throw new Error('Match could not be added to matches_dev. Skipping');
+      }
+
+      if (match.players.length < 1) {
+        throw new Error('Player list is empty. Looks like there is a problem with the replay file. Skipping');
+      }
+
+      // Add the match outcome to the matchups table for each player
+      const queries = match.players.map(player => {
+        return query(
+          'INSERT INTO matchups (match_id, player_id, hero, alias, slot, sim_id, win) VALUES (?,?,?,?,?,?,?)',
+          [insertId, player.relic_id, player?.hero, player?.name, player?.slot, player?.sim_id, match.winner == player?.team]
+        );
+      });
+
+      await Promise.all(queries);
+
+      // Add match data to the matches table
+      const reporterDate = match.reporter.date;
+      const mapId = id;
+      const modVersion = match.mod_version;
+      const p1 = match.players[0];
+      const p2 = match.players[1];
+      const p1_hero = getHeroId(p1.race, p1.hero);
+      const p2_hero = getHeroId(p2.race, p2.hero);
+
+      const winner = match.winner == p1.team ? 1 : match.winner == p2.team ? 2 : 0;
+
+      await query(
+        'INSERT INTO matches (match_relic_id, md5, mod_version, unix_utc_time, p1_relic_id, p2_relic_id, p1_name, p2_name, p1_hero, p2_hero, p1_rank, p2_rank, map, ticks, winner, ranked, chat, league) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        [match.id, match.md5, modVersion, reporterDate, p1.relic_id, p2.relic_id, p1.name, p2.name, p1_hero, p2_hero, 0, 0, mapId, match.frames, winner, winner ? match.ranked : 0, match.chat, match.league]
         );
 
-        return true;
-      } else {
-        logger.error('Could not find map from the replay file. Skipping writing to database');
-      }
     } catch (error) {
       logger.error(error?.message ?? error, loggerMeta);
+      throw new Error(error);
     }
-
-    return false;
   }
 }
