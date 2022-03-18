@@ -1,3 +1,5 @@
+const query = require('./db');
+
 function getHeroId(race, hero) {
   // Grey Knights are special (ofc they are)
   if (race === 0 && hero > 2) {
@@ -53,6 +55,27 @@ function getHeroId(race, hero) {
         case 1: return 20;
         case 2: return 21;
       }
+  }
+}
+
+async function addPlayerToDB(player) {
+  try {
+    await query(
+      'INSERT INTO players (relic_id, steam_id, last_steam_name) VALUES (?, ?, ?)',
+      [player.relic_id, player.steam_id, player.name]
+    );
+  } catch (error) {
+    throw new Error(`Could not add player ${player.relic_id} to the database`);
+  }
+}
+
+async function findMap(id) {
+  try {
+    const res = await query('SELECT * FROM maps WHERE id = ?', [id]);
+
+    return res[0];
+  } catch (error) {
+    throw new Error(`Could not find map with id ${id}`);
   }
 }
 
