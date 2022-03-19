@@ -25,7 +25,7 @@ const MatchDetails = () => {
         <div className="card-body">
           <h2 className="card-title">{match?.map_name ?? 'Unknown map'}</h2>
           <div className="flex gap-20">
-            <img src={`/img/maps/${match?.file_name}.png`} width={256} height={256} alt="Map" />
+            <img src={`/v2/img/maps/${match?.file_name}.png`} width={256} height={256} alt="Map" />
             <div className="flex flex-col text-sm">
               <span>{match?.map_name}</span>
               <span>Duration: {ticks2time(match?.ticks)}</span>

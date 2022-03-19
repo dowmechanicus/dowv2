@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className='flex flex-col'>
-      <Router>
+      <Router basename='/v2'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
