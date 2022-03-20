@@ -11,6 +11,9 @@ const Navbar = () => {
           <Link to='/'>
             <span className='btn btn-ghost btn-sm rounded-btn'>Home</span>
           </Link>
+          <Link to='/codex'>
+            <span className='btn btn-ghost btn-sm rounded-btn'>Codex</span>
+          </Link>
           <Link to='/ladder'>
             <span className='btn btn-ghost btn-sm rounded-btn'>Ladder</span>
           </Link>
