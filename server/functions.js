@@ -1,4 +1,9 @@
+const exec = require('util').promisify(require('child_process').exec);
+const spawn = require('util').promisify(require('child_process').spawn);
+
+const { SBPS_PATHS } = require('./attrib_paths');
 const query = require('./db');
+const logger = require('./logger');
 
 function getHeroId(race, hero) {
   // Grey Knights are special (ofc they are)
@@ -79,6 +84,59 @@ async function findMap(id) {
   }
 }
 
+async function rbf2json(path, version = 'latest') {
+  if (!path) {
+    throw new Error('No path given to rbf2json');
+  }
+
+  const sgacat = '/usr/local/bin/sgacat';
+  const elite_attributes = `/srv/users/serverpilot/apps/dowcodex/public/elite/attributes/${version}/Elite_attrib.sga`;
+  const original_attributes = `/srv/users/serverpilot/apps/dowcodex/public/elite/attributes/GameAttrib_orig.sga`;
+
+  logger.debug(`Opening Elite attributes to look for key: ${path}`);
+  let { stdout: json, stderr } = await exec(`${sgacat} ${elite_attributes} "${path}"`);
+
+  if (stderr) {
+    logger.error(stderr);
+    throw new Error(stderr);
+  }
+
+  if (json.includes('usage:')) {
+    logger.error('SGA file not found');
+    throw new Error('sga file not found');
+  }
+
+  if (!json) {
+    logger.debug(`Opening original attributes to look for key: ${path}`);
+    let { _stdout, _stderr } = await exec(`${sgacat} ${original_attributes} "${path}"`);
+    json = _stdout;
+    stderr = _stderr;
+  }
+
+  if (stderr) {
+    logger.error(stderr);
+    throw new Error(stderr);
+  }
+
+  if (!json) {
+    throw new Error(`Path ${path} was neither found in Elite nor original attributes`);
+  }
+
+  if (json.includes('usage:')) {
+    logger.error('SGA file not found');
+    throw new Error('sga file not found');
+  }
+
+  return JSON.parse(json);
+}
+
+function getSbpsPathFromName(name) {
+  return SBPS_PATHS[name];
+}
+
 module.exports = {
-  getHeroId
+  getHeroId,
+  addPlayerToDB,
+  rbf2json,
+  getSbpsPathFromName
 }
