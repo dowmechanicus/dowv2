@@ -54,6 +54,5 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0"
   },
-  "proxy": "http://localhost:4000",
-  "homepage": "/v2"
+  "proxy": "http://localhost:4000"
 }

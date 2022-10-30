@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className='flex flex-col'>
-      <Router basename='/v2'>
+      <Router>
         <Navbar />
         <AppRoutes />
       </Router>
