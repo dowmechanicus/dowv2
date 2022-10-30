@@ -1,0 +1,872 @@
+simulation\attrib\ability\pvp\race_chaos\csm_kh_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_chaos\csm_tz_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_auto_jump.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_auto_jump_autarch.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_auto_jump_banshee.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_shimmer_orb_building_buff.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_speed_self_fleetoffoot.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_fleet_of_foot",
+simulation\attrib\ability\pvp\race_eldar\eld_speed_self_fleetoffoot_hero.rbf
+simulation\attrib\ability\pvp\race_eldar\eld_speed_self_fleetoffoot_warlock.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_fleet_of_foot",
+simulation\attrib\ability\pvp\race_imperial_guard\ig_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\ig_holy_pyre_nimbus.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\ig_repair_pvp.rbf
+      "icon_file_path": "space_marines/icon_abilities/build/sm_repair",
+simulation\attrib\ability\pvp\race_marine\sm_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_marine\sm_hero_xp_modifier.rbf
+simulation\attrib\ability\pvp\race_marine\sm_melee_resistance_aura.rbf
+simulation\attrib\ability\pvp\race_marine\sm_repair_pvp.rbf
+      "icon_file_path": "space_marines/icon_abilities/build/sm_repair",
+simulation\attrib\ability\pvp\race_marine\sm_requisition_ticker.rbf
+simulation\attrib\ability\pvp\race_marine\sm_requisition_ticker_req.rbf
+simulation\attrib\ability\pvp\race_marine\sm_resurrect.rbf
+simulation\attrib\ability\pvp\race_marine\sm_resurrect_apothecary.rbf
+simulation\attrib\ability\pvp\race_ork\ork_hero_lrg_nimbus.rbf
+simulation\attrib\ability\pvp\race_ork\ork_hero_med_nimbus.rbf
+simulation\attrib\ability\pvp\race_ork\ork_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_ork\ork_kommando_boom_time_entity.rbf
+simulation\attrib\ability\pvp\race_ork\ork_repair.rbf
+simulation\attrib\ability\pvp\race_ork\ork_smoke.rbf
+simulation\attrib\ability\pvp\race_ork\ork_waaagh_shout.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_waaagh_shout",
+simulation\attrib\ability\pvp\race_ork\ork_weirdboy_mana_recharge_aura.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_capillary_tower_burst.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_capillary_tower_burst_damage.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_hero_lrg_nimbus.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_melee_resistance_aura.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_spawn_real_tunnel.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_synapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_synapse_capillary.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_synapse_death.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyr_synapse_remove.rbf
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_buff_self_anger.rbf
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_buff_self_invincible.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_bloodletter_warp_shift",
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_buff_self_vehicledamage.rbf
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_debuff_self_daemon_energy_death.rbf
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_debuff_self_daemon_energy_drain.rbf
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_debuff_self_daemon_energy_drain_global.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_infiltrate",
+simulation\attrib\ability\pvp\race_chaos\bloodletter\csm_teleport_target_bloodletter.rbf
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_buff_self_damage.rbf
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_buff_self_energyshield.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_dark_halo",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_buff_self_invulnerability.rbf
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_aoe_attack.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_kill_the_weak",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_aoe_cower.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_sweeping_doom",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_aoe_fireball.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/fireball",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_aoe_meleesmash.rbf
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_aoe_slash.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_destructive_strike",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_damage_heal_life_drain.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_consume_lord",
+simulation\attrib\ability\pvp\race_chaos\chaos_lord\csm_dot_targetaoe_combieflamer.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_immolate",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_buff_self_health.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_buff_self_infiltration.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_cultist_melee_weapons.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_damage_aoe_dark_aura.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_doom_blast",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_debuff_self_worship.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_debuff_self_worship_khorneicon.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_worship_khorne",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_debuff_self_worship_nurgleicon.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_worship_nurgle",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_debuff_self_worship_shrine.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_debuff_self_worship_tzeentchicon.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_worship_tzeentch",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_knockback_aoe_grenades.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_grenade_barrage",
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_mark_of_khorne.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_mark_of_nurgle.rbf
+simulation\attrib\ability\pvp\race_chaos\cultist\csm_repair.rbf
+      "icon_file_path": "space_marines/icon_abilities/build/sm_repair",
+simulation\attrib\ability\pvp\race_chaos\dreadnought\csm_buff_self_blood_frenzy.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_blood_frenzy",
+simulation\attrib\ability\pvp\race_chaos\dreadnought\csm_buff_self_rapidfire.rbf
+simulation\attrib\ability\pvp\race_chaos\dreadnought\csm_damage_aoe_missilebarrage.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_missile_barrage",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_buff_aoe_bloodlust.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_bloodlust",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_buff_target_touch_of_nurgle.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_buff_target_touch_of_nurgle_is_active.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_damage_aoe_chaos_nuke.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_empyreal_abyss",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_damage_aoe_chaos_nuke_core_aura.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_damage_aoe_chaos_nuke_core_hooks.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_damage_line_sorcerer_fire.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_warpfire",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_debuff_aoe_blind.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_malignant_blindness",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_debuff_passiveaoe_noxious_cloud.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_spawn_chaos_icon.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_daemonic_summoning",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_spawn_noxious_cloud.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_spawn_target_blood_sacrifice.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_blood_sacrifice",
+simulation\attrib\ability\pvp\race_chaos\globals\csm_spawn_zombie_plague.rbf
+simulation\attrib\ability\pvp\race_chaos\globals\csm_teleport_aoe_targeted.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/global/csm_mass_warp",
+simulation\attrib\ability\pvp\race_chaos\havoc\csm_debuff_aoe_slow.rbf
+simulation\attrib\ability\pvp\race_chaos\heavy_bolter_turret\sm_upgrade_lascannon.rbf
+simulation\attrib\ability\pvp\race_chaos\juggernaut\csm_buff_self_rage.rbf
+simulation\attrib\ability\pvp\race_chaos\juggernaut\csm_damage_aoe_charge.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_charge_juggernaut",
+simulation\attrib\ability\pvp\race_chaos\juggernaut\csm_debuff_aoe_roar.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_daemonic_rorar",
+simulation\attrib\ability\pvp\race_chaos\noise_marine\csm_aoe_cacophony.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_cacophony",
+simulation\attrib\ability\pvp\race_chaos\noise_marine\csm_noise_marine_sonic_blasters.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine\csm_buff_passiveaoe_slow_aura.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine\csm_damage_aoe_plaguebomb.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine\csm_debuff_target_plague_missile.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine\csm_dot_aoe_blightgrenade.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_blight_grenade",
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_aoe_damage.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_blight_immobilize_aoe_blightgrenade.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_blight_grenade",
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_buff_aoe_cloud.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_pestilent_strike",
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_buff_aoe_defensivecloud.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_breath_of_nurgle",
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_buff_passiveaoe_plague.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_buff_passiveaoe_plague_plaguemarine_missile.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_buff_passiveaoe_plaguebeacon.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_debuff_aoe_bile.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_bilious_discharge",
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_debuff_aoe_bile_aura.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_debuff_aoe_plaguesplat.rbf
+simulation\attrib\ability\pvp\race_chaos\plaguemarine_hero\csm_debuff_aoe_stenchcloud.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_unholy_stench",
+simulation\attrib\ability\pvp\race_chaos\shrine\csm_buff_aoe_shrine.rbf
+simulation\attrib\ability\pvp\race_chaos\shrine\csm_buff_shrine_khorne.rbf
+simulation\attrib\ability\pvp\race_chaos\shrine\csm_buff_shrine_nurgle.rbf
+simulation\attrib\ability\pvp\race_chaos\shrine\csm_buff_shrine_tzeentch.rbf
+simulation\attrib\ability\pvp\race_chaos\shrine\csm_damage_aoe_disruptor.rbf
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_buff_aoe_shield.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_daemonic_shield",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_buff_target_immolate.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_coruscating_flame",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_damage_aoe_doombolt.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_doombolt",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_damage_line_lavaslash.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_warpfire",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_damage_target_consumeally.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_consume",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_debuff_target_doom.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_curse_of_tzeentch",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_debuff_target_mindcontrol.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_subjugate",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_immobilize_aoe_chains.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/debuff/csm_chains_of_torment",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_immobilize_aoe_chains_entity.rbf
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_teleport_target_rift.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/build/csm_warp_rift",
+simulation\attrib\ability\pvp\race_chaos\sorceror\csm_teleport_target_sorceror.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_buff_self_damage.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_buff_self_eternal_war.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_buff_self_speed.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_damage_aoe_mercilessstrike.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_damage_targeted_grenade.rbf
+simulation\attrib\ability\pvp\race_chaos\tactical_squad\csm_passive_noeffects_charge.rbf
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_buff_aoe_cloud_of_flies.rbf
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_damage_aoe_poison.rbf
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_damage_aoe_vomit.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_vomit",
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_damage_target_consumeally.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/buff/csm_devour",
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_damage_target_hook.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_foul_snare",
+simulation\attrib\ability\pvp\race_chaos\unclean_one\csm_debuff_aoe_rot.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_swarm_of_flies",
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_aoe_knockback.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_forceshield.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_inspiration.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_jump.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_leap",
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_skyleap_away.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_skyleap",
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_skyleap_away_execute.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_weapon_swap_melee.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_autarch_weapon_swap_ranged.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_buff_target_command.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_buff_target_dragon_shield.rbf
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_buff_target_scorpion_shield.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_fortune",
+simulation\attrib\ability\pvp\race_eldar\autarch\eld_damage_target_mandiblaster_autarch.rbf
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_buff_aoe_aura.rbf
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_damage_aoe_avatardeath.rbf
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_damage_aoe_khaineswrath.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_avatar_khaines_wrath",
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_damage_line_wailingdoom.rbf
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_damage_line_wailingdoom2.rbf
+simulation\attrib\ability\pvp\race_eldar\avatar\eld_damage_line_wailingdoom3.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_the_wailing_doom",
+simulation\attrib\ability\pvp\race_eldar\banshee\eld_buff_aoe_auraexarch.rbf
+simulation\attrib\ability\pvp\race_eldar\banshee\eld_debuff_aoe_suppress.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_war_shout",
+simulation\attrib\ability\pvp\race_eldar\brightlance\eld_damage_line_focusedbeam.rbf
+simulation\attrib\ability\pvp\race_eldar\buildings\eld_cloak_shroud_aura.rbf
+simulation\attrib\ability\pvp\race_eldar\buildings\eld_energy_aura.rbf
+simulation\attrib\ability\pvp\race_eldar\dcannon\eld_damage_aoe_blackhole.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_singularity",
+simulation\attrib\ability\pvp\race_eldar\dcannon\eld_damage_aoe_blackholeaura.rbf
+simulation\attrib\ability\pvp\race_eldar\dcannon\eld_damage_aoe_normalshot.rbf
+simulation\attrib\ability\pvp\race_eldar\falcon\eld_buff_self_shield.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_energy_field",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_buff_aoe_energyrestore.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_spiritual_rites",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_buff_self_ressurect.rbf
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_buff_target_fortune.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_fortune",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_buff_target_guide.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_guide",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_damage_target_mindwar.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_mind_war",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_debuff_target_doom.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_doom",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_immobilize_aoe_leviate.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_levitation_field",
+simulation\attrib\ability\pvp\race_eldar\farseer\eld_immobilize_aoe_timefield.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_time_field",
+simulation\attrib\ability\pvp\race_eldar\fire_prisim\eld_fire_buff_toggle_explosiveshot.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_dispersed_beam",
+simulation\attrib\ability\pvp\race_eldar\fire_prisim\eld_fire_buff_toggle_focusedshot.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_focused_beam",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_buff_aoe_speed.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_swift_movement",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_buff_target_damage.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_crack_shot",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_buff_target_damagereduce.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_conceal",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_damage_aoe_autarch_grenade.rbf
+simulation\attrib\ability\pvp\race_eldar\globals\eld_damage_aoe_eldritch.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_eldritch_storm",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_respawn_autarch.rbf
+      "icon_file_path": "eldar/icon_abilities/global/ig_autarch",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_respawn_autarch_farseer.rbf
+      "icon_file_path": "eldar/icon_abilities/global/ig_autarch",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_reveal_aoe_farsight.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_farsight",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_spawn_autarch.rbf
+      "icon_file_path": "eldar/icon_abilities/global/ig_autarch",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_spawn_autarch_farseer.rbf
+      "icon_file_path": "eldar/icon_abilities/global/ig_autarch",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_spawn_seercouncil.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_summon_seer_council",
+simulation\attrib\ability\pvp\race_eldar\globals\eld_spawn_warpspiders.rbf
+      "icon_file_path": "eldar/icon_abilities/global/eld_spiders_brood",
+simulation\attrib\ability\pvp\race_eldar\guardian\eld_buff_aoe_wraithsight.rbf
+simulation\attrib\ability\pvp\race_eldar\guardian\eld_buff_self_damagereduction.rbf
+simulation\attrib\ability\pvp\race_eldar\guardian\eld_buff_self_embolden.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_embolden",
+simulation\attrib\ability\pvp\race_eldar\guardian\eld_damage_aoe_grenade.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_plasma_grenade",
+simulation\attrib\ability\pvp\race_eldar\guardian\eld_repair.rbf
+      "icon_file_path": "space_marines/icon_abilities/build/sm_repair",
+simulation\attrib\ability\pvp\race_eldar\ranger\eld_buff_aoe_cloaking.rbf
+      "icon_file_path": "eldar/icon_abilities/build/eld_holo-field",
+simulation\attrib\ability\pvp\race_eldar\ranger\eld_buff_self_infiltrate.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_infiltrate",
+simulation\attrib\ability\pvp\race_eldar\ranger\eld_buff_self_suppressattack.rbf
+simulation\attrib\ability\pvp\race_eldar\ranger\eld_damage_target_knockdown_shot.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_knockdown",
+simulation\attrib\ability\pvp\race_eldar\ranger\eld_speed_self_fleetoffoot.rbf
+simulation\attrib\ability\pvp\race_eldar\seer_council\eld_buff_aoe_aura.rbf
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_buff_aoe_cloakingshroud.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_cloaking_shroud",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_buff_aoe_manaaura.rbf
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_buff_self_invincibility.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_providence",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_buff_self_invincibility_xp2.rbf
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_buff_self_shield.rbf
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_damage_aoe_destructor.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_psychic_blast",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_damage_aoe_swordslash.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_ethereal_slash",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_damage_self_energygain.rbf
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_dot_aoe_immolate.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_immolate",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_heal_target_channel.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_channel",
+simulation\attrib\ability\pvp\race_eldar\warlock\eld_knockback_direction_forcepush.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_warp_throw",
+simulation\attrib\ability\pvp\race_eldar\warpspider\eld_buff_self_exarchaura.rbf
+simulation\attrib\ability\pvp\race_eldar\warpspider\eld_immobilize_target_haywiregrenade.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_haywire_grenade",
+simulation\attrib\ability\pvp\race_eldar\warpspider\eld_teleport_target_warpspider.rbf
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_buff_aoe_shimmerorb.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_shimmer_orb",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_buff_self_heavyfilament.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_heavy_gauge_filament",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_immobiliize_aoe_phaseshift.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_phase_shift",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_immobilize_aoe_gravgrenade.rbf
+      "icon_file_path": "eldar/icon_abilities/attack/eld_anti_grav_grenade",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_immobilize_target_entangle.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_entangle",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_teleport_aoe_groupteleport.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_group_teleport",
+simulation\attrib\ability\pvp\race_eldar\warpspider_hero\eld_teleport_target_warpspider_exarch.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_teleport",
+simulation\attrib\ability\pvp\race_eldar\webway\eld_buff_aoe_healing_warlock.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_aoe_health",
+simulation\attrib\ability\pvp\race_eldar\webway\eld_buff_aoe_mana_warp_spider.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_command",
+simulation\attrib\ability\pvp\race_eldar\webway\eld_buff_aoe_windwalk.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_holofield",
+simulation\attrib\ability\pvp\race_eldar\webway\eld_cloak_webway.rbf
+simulation\attrib\ability\pvp\race_eldar\webway\eld_heal_aoe_heroes.rbf
+simulation\attrib\ability\pvp\race_eldar\webway\eld_heal_aoe_troops.rbf
+simulation\attrib\ability\pvp\race_eldar\wraithguard\eld_heal_self_wraithbone.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eldar_wraithguard_wraithbone",
+simulation\attrib\ability\pvp\race_eldar\wraithlord\eld_heal_self_wraithbone.rbf
+      "icon_file_path": "eldar/icon_abilities/buff/eld_synergy",
+simulation\attrib\ability\pvp\race_imperial_guard\baneblade\ig_baneblade_targeted_main_cannon.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\baneblade\ig_baneblade_targeted_supershot.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_fire_demolisher",
+simulation\attrib\ability\pvp\race_imperial_guard\banewolf\ig_banewolf_knockdown_attack.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\banewolf\ig_debuff_aoe_chemicals.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_bilious_discharge",
+simulation\attrib\ability\pvp\race_imperial_guard\banewolf\ig_debuff_banewolf_aura.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\banewolf\ig_debuff_banewolf_aura_damage.rbf
+      "icon_file_path": "eldar/icon_abilities/debuff/eld_time_field",
+simulation\attrib\ability\pvp\race_imperial_guard\bunker\medical_bunker.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\bunker\repair_bunker.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_1.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_2.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_3.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_4.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_5.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_ablative_6.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\chimera\ig_spawn_guardsmen.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_active_overcharge_melta.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_self_aoe_for_the_emp.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_refractor_field",
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_targeted_drop_pod.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_valkyrie_support",
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_targeted_grenades.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_targeted_heal_squad.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_distribute_medkit",
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_targeted_ranged_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commander_targted_flamer.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_commissar_aura.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_sergeant_aura.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commander\ig_vox_aura.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_buff_self_shield.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_iron_halo",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_execute_effects.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_execute_effects_debuff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_execute_effects_invulnerable.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_execute_effects_suppression.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_kill_target_execute.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_inspire_courage",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_kill_target_execute_fast.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_kill_target_execute_invulnerable.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_kill_target_execute_plus.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_inspire_terror",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_kill_target_execute_suppression.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_inspire_defiance",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_aoe_inspiring.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_aoe_martyr.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_battlecry.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_lead_by_example",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_break_ret.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_competency.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_debuff_bionic_eye.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_self_aoe_for_the_emp.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_adv_healing",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_targeted_mark_target.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_targeted_nuke.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_surgical_strike",
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_targted_stand_ground.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_commissar_lord_targted_till_the_last.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\commissar_lord\ig_powerfist_nimbus.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_buff_self_infiltration.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_infiltrate",
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_damage_aoe_satchel.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_grenade_launch.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_grenade_launch_triple.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_sniper_squad_targeted_grenades",
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_melee_resistance_aura.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_remote_bomb.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_squad_smoke.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_smoke_launcher",
+simulation\attrib\ability\pvp\race_imperial_guard\devils\ig_stun_aoe_knockback.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_explosive_shot",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_basilisk_flare.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_basilisk_flare",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_basilisk_gas.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_promethium_strike",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_aim.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/take_aim",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_double_time.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_double_time",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_flames.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_flames",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_light.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_back_in_the_fight",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_square.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_def_formation",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_command_stationary.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_stand_firm",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_damage_bombing_run.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_globals_basilisk_creeping_barrage.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_creeping_barrage",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_globals_valk_cluster_bombs.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_inspired_zeal.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_loyal_to_the_end",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_banewolf.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_banewolf",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_bunker.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_guardsmen.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_leader.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_leman_russ.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_leman_russ",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_spawn_stormtroopers.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_infiltrated_stormtroopers",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_valk_bombing_run.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/valkyrie_bombing_run",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_valk_mine_drop.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/global/ig_airdrop_mines",
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_buff_self_rank_fire.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_commissar__break_retreat.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_commissar_active_ranged_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_commissar_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_leader_active_ranged_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_leader_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_self_active_heal.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_stationary_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_vox_active_speed_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\guardsmen\ig_guardsmen_vox_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\heavy_weapon_squad\ig_active_entrench.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\heavy_weapon_squad\ig_active_entrench_2.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\heavy_weapon_squad\ig_heavy_weapon_squad_leader_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\hq\ig_spawn_guardsmen.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_active_restore.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_aoe_holy_pyre_debuff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_holy_pyre_effect.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_self_purgatus.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_purgation",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_assail.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/assail",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_bolter_shot.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_crossbow_shot.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/crippling_volley",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_hammer.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/hammer_of_the_witches",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_holy_pyre.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_holy_pyre",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_inferno_pistol_judge.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/holy_bullet",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_inferno_pistol_judged.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/holy_bullet",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_inferno_pistol_judging.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_inferno_pistol_shot.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/holy_bullet_02",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_inferno_pistol_shot_final.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_infiltrate_squad.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/invisibility",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_targeted_invulnerable.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_impenetrable",
+simulation\attrib\ability\pvp\race_imperial_guard\inquisitor\ig_inquisitor_toggled_shield.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_inquisitor_toggled_shield",
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_1.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_2.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_3.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_4.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_5.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_ablative_6.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\leman_russ\ig_hero_nimbus.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\manticore\ig_manticore_artillery_flare.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\manticore\ig_manticore_artillery_flare_rockets.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\manticore\ig_manticore_shot.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_manticore_shot",
+simulation\attrib\ability\pvp\race_imperial_guard\ogryn_squad\ig_ogryn_targeted_charge.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_use_your_ead",
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_1.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_2.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_3.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_4.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_5.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_ablative_6.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_active_toggle_to_frag.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_krak_missile",
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_active_toggle_to_krak.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_frag_missile",
+simulation\attrib\ability\pvp\race_imperial_guard\sentinel\ig_sentinel_active_stomp.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/attack/ig_ground_pound",
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_active_assault.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_active_shock.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_active_stealth.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_infiltrate.rbf
+      "icon_file_path": "imperial_guard/icon_abilities/buff/ig_infiltrate",
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_leader_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_overcharge.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_sprint.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_targeted_emp.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\stormtrooper_squad\ig_stormtrooper_squad_vox_passive_buff.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\turret\ig_turret_salvage.rbf
+      "icon_file_path": "chaos_marines/icon_abilities/attack/csm_doom_blast",
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_dual_bombing_run\ig_dbr__flare.rbf
+simulation\attrib\ability\pvp\race_imperial_guard\globals\ig_dual_bombing_run\ig_dbr_flare_rockets.rbf
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_buff_target_damage.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_combat_stimulants",
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_damage_target_rapidfire.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_full_auto",
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_dot_aoe_toxingrenade.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_toxin_grenade",
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_heal_aoe_advancedhealing.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_adv_healing",
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_heal_aoe_aura.rbf
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_heal_target_apoth.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_apothecary_heal",
+simulation\attrib\ability\pvp\race_marine\apothecary\sm_resurrect_improved.rbf
+simulation\attrib\ability\pvp\race_marine\assault_marine\sm_damage_aoe_mercilessstrike.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_merciless_strike",
+simulation\attrib\ability\pvp\race_marine\assault_marine\sm_immobilize_target_meltabomb.rbf
+simulation\attrib\ability\pvp\race_marine\assault_marine\sm_immobilize_target_meltabomb_2.rbf
+simulation\attrib\ability\pvp\race_marine\assault_marine\sm_jump_target_assault.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_assault_jump",
+simulation\attrib\ability\pvp\race_marine\assault_marine\sm_stun_aoe_flashbang.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_flashbang",
+simulation\attrib\ability\pvp\race_marine\beacon\sm_heal_aoe_beacon.rbf
+simulation\attrib\ability\pvp\race_marine\beacon\sm_heal_aoe_beacon_repair.rbf
+simulation\attrib\ability\pvp\race_marine\devastator\sm_buff_self_damage.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_focused_fire",
+simulation\attrib\ability\pvp\race_marine\dreadnought\sm_damage_aoe_cannonbarrage.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_explosive_cannon_barrage",
+simulation\attrib\ability\pvp\race_marine\dreadnought\sm_damage_aoe_cannonbarrage_requirement.rbf
+simulation\attrib\ability\pvp\race_marine\dreadnought\sm_damage_aoe_charge.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_dreadnaught_charge",
+simulation\attrib\ability\pvp\race_marine\dreadnought\sm_stun_aoe_fist.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_smash",
+simulation\attrib\ability\pvp\race_marine\dreadnought_venerable\sm_stoicism.rbf
+simulation\attrib\ability\pvp\race_marine\dreadnought_venerable\sm_stoicism_icon.rbf
+simulation\attrib\ability\pvp\race_marine\dreadnought_venerable\sm_stoicism_invuln.rbf
+simulation\attrib\ability\pvp\race_marine\drop_pod\sm_drop_pod_disable_cover.rbf
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_buff_aoe_banner.rbf
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_buff_aoe_battlecry.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_battle_cry",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_buff_aoe_defend.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_defend",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_buff_self_shield.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_iron_halo",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_buff_self_speed.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_sprint",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_debuff_target_tankshock.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_power_fist_tank_shock",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_dot_aoe_burnground.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_let_it_burn",
+simulation\attrib\ability\pvp\race_marine\force_commander\sm_teleport_target_pack.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_teleport",
+simulation\attrib\ability\pvp\race_marine\globals\sm_buff_aoe_invincibility.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_angels_of_death",
+simulation\attrib\ability\pvp\race_marine\globals\sm_buff_aoe_repair.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_blessing_omnissiah",
+simulation\attrib\ability\pvp\race_marine\globals\sm_buff_target_damage.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_for_the_emperor",
+simulation\attrib\ability\pvp\race_marine\globals\sm_damage_aoe_orbital.rbf
+simulation\attrib\ability\pvp\race_marine\globals\sm_damage_aoe_orbital_picktargets.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_orbital_bombardment",
+simulation\attrib\ability\pvp\race_marine\globals\sm_drop_pod_landing_effects.rbf
+simulation\attrib\ability\pvp\race_marine\globals\sm_heal_aoe_reviveheroes.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_laramans_blessing",
+simulation\attrib\ability\pvp\race_marine\globals\sm_spawn_assault_terminators.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_deepstrike_melee",
+simulation\attrib\ability\pvp\race_marine\globals\sm_spawn_drop_pod.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_call_drop_pod",
+simulation\attrib\ability\pvp\race_marine\globals\sm_spawn_terminators.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_deepstrike_range",
+simulation\attrib\ability\pvp\race_marine\globals\sm_spawn_venerable_dreadnought.rbf
+      "icon_file_path": "space_marines/icon_abilities/global/sm_dreadnought_drop",
+simulation\attrib\ability\pvp\race_marine\hq\sm_heal_aoe_heroes.rbf
+simulation\attrib\ability\pvp\race_marine\hq\sm_heal_aoe_troops.rbf
+simulation\attrib\ability\pvp\race_marine\hq\sm_hq_impassable_landing_pad.rbf
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_damage_aoe_flamers.rbf
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_damage_aoe_frag_assault.rbf
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_damage_aoe_frag_assault_2.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_frag_assault",
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_damage_aoe_landraider_missile.rbf
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_dot_aoe_flame_wall.rbf
+simulation\attrib\ability\pvp\race_marine\land_raider\sm_land_raider_aoe_aura.rbf
+simulation\attrib\ability\pvp\race_marine\librarian\sm_buff_self_dome.rbf
+simulation\attrib\ability\pvp\race_marine\librarian\sm_buff_self_speed.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_quickening",
+simulation\attrib\ability\pvp\race_marine\librarian\sm_buff_target_speed.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_veil_of_time",
+simulation\attrib\ability\pvp\race_marine\librarian\sm_damage_aoe_smite.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_smite",
+simulation\attrib\ability\pvp\race_marine\librarian\sm_knockback_aoe_shieldwall_version2.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_force_barrier",
+simulation\attrib\ability\pvp\race_marine\librarian\sm_teleport_target_infinitygate.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_select_teleport_unit",
+simulation\attrib\ability\pvp\race_marine\rhino\sm_debuff_aoe_smoke.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_smoke_launcher",
+simulation\attrib\ability\pvp\race_marine\scout\sm_buff_self_infiltrate.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_infiltrate",
+simulation\attrib\ability\pvp\race_marine\scout\sm_damage_aoe_grenade.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_frag_grenade",
+simulation\attrib\ability\pvp\race_marine\scout\sm_stun_aoe_knockback.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_explosive_shot",
+simulation\attrib\ability\pvp\race_marine\tactical_squad\sm_and_they_shall_know_no_fear.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_rally",
+simulation\attrib\ability\pvp\race_marine\tactical_squad\sm_buff_self_damage.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_fire_frenzy",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_buff_aoe_rangeddamage.rbf
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_buff_self_overcharge.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_overcharge",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_buff_self_shield.rbf
+      "icon_file_path": "space_marines/icon_abilities/buff/sm_refractor_field",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_damage_aoe_knockback.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_powerful_sweep",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_damage_target_highpoweredshot.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_high_powered_shot",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_debuff_aoe_empgrenade.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_orbs_of_the_omnissiah",
+simulation\attrib\ability\pvp\race_marine\techmarine\sm_debuff_target_marktarget.rbf
+      "icon_file_path": "space_marines/icon_abilities/debuff/sm_mark_target",
+simulation\attrib\ability\pvp\race_marine\terminator\sm_damage_aoe_missilebarrage.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_cyclone_missile_barrage",
+simulation\attrib\ability\pvp\race_marine\terminator\sm_dot_aoe_burnground.rbf
+      "icon_file_path": "space_marines/icon_abilities/attack/sm_let_it_burn",
+simulation\attrib\ability\pvp\race_marine\terminator\sm_teleport_target_terminators.rbf
+simulation\attrib\ability\pvp\race_ork\banner\ork_aoe_banner_waaagh.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_waaagh_shout",
+simulation\attrib\ability\pvp\race_ork\banner\ork_buff_aoe_banner.rbf
+simulation\attrib\ability\pvp\race_ork\battlewagon\ork_aoe_battlewagon_setup.rbf
+simulation\attrib\ability\pvp\race_ork\battlewagon\ork_battlewagon_charge.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_kult_of_speed",
+simulation\attrib\ability\pvp\race_ork\battlewagon\ork_battlewagon_knockback_timed.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_deff_rolla",
+simulation\attrib\ability\pvp\race_ork\battlewagon\ork_damage_aoe_battlewagon_artillery.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_mega_boomshot",
+simulation\attrib\ability\pvp\race_ork\buildings\ork_heal_aoe_beacon_repair.rbf
+simulation\attrib\ability\pvp\race_ork\buildings\ork_reinforce_addon.rbf
+simulation\attrib\ability\pvp\race_ork\deff_dread\ork_buff_self_speed.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_deff_dread_rampage",
+simulation\attrib\ability\pvp\race_ork\globals\ork_buff_aoe_vehiclespeed.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_kult_of_speed",
+simulation\attrib\ability\pvp\race_ork\globals\ork_buff_target_camo.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_hide",
+simulation\attrib\ability\pvp\race_ork\globals\ork_buff_target_damagemelee.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_use_ur_choppas",
+simulation\attrib\ability\pvp\race_ork\globals\ork_buff_target_damagereduction.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_ard_boyz",
+simulation\attrib\ability\pvp\race_ork\globals\ork_buff_target_rangeddamage.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_more_dakka",
+simulation\attrib\ability\pvp\race_ork\globals\ork_damage_target_rokks.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_rokks",
+simulation\attrib\ability\pvp\race_ork\globals\ork_spawn_kommando_squad.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_kommandoz_iz_da_sneakiest",
+simulation\attrib\ability\pvp\race_ork\globals\ork_waaagh.rbf
+      "icon_file_path": "orks/icon_abilities/global/ork_waaagh",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_buff_self_infiltrate.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_infiltrate",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_aoe_explosiveshot.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_explosive_shells",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_aoe_kaboom.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_kaboom",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_aoe_kaboom_entity.rbf
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_aoe_stikkbomb.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_stikkbomb",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_target_highpoweredshot.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_explosive_shot",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_damage_target_knife.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_assassinate",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_immobilize_aoe_stungrenade.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_stun_grenade",
+simulation\attrib\ability\pvp\race_ork\kommando_hero\ork_spawn_remote_bomb.rbf
+simulation\attrib\ability\pvp\race_ork\kommandos\ork_buff_self_infiltration.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_infiltrate",
+simulation\attrib\ability\pvp\race_ork\kommandos\ork_damage_target_knockdownambush.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_kommando_ambush",
+simulation\attrib\ability\pvp\race_ork\kommandos\ork_debuff_aoe_smokebomb.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_smoke_grenade",
+simulation\attrib\ability\pvp\race_ork\kommandos\ork_dot_aoe_burnabomb.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_burna_bomb",
+simulation\attrib\ability\pvp\race_ork\lootas\ork_buff_self_infiltrate.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_infiltrate_loota",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_buff_self_forcefield.rbf
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_buff_self_invincibility.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_force_field_overcharge",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_buff_target_invincibilitychannled.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_supa_tuff_beam",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_damage_aoe_electricarmor.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_electric_shock",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_heal_target_healthenergy.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_energy_transfer",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_immobilize_aoe_earthquake.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_earthquake",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_spawn_proximity_mine.rbf
+      "icon_file_path": "orks/icon_abilities/build/ork_mines",
+simulation\attrib\ability\pvp\race_ork\mekboy\ork_teleport_target_mekboy.rbf
+simulation\attrib\ability\pvp\race_ork\nobs\ork_buff_self_frenzy.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_nob_frenzy",
+simulation\attrib\ability\pvp\race_ork\shootas\ork_debuff_target_suppression.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_aiming_wotz_dat",
+simulation\attrib\ability\pvp\race_ork\sluggas\ork_buff_self_suppressionbreak.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_recklessness",
+simulation\attrib\ability\pvp\race_ork\sluggas\ork_nob_self_buff.rbf
+simulation\attrib\ability\pvp\race_ork\sluggas\ork_repair.rbf
+      "icon_file_path": "space_marines/icon_abilities/build/sm_repair",
+simulation\attrib\ability\pvp\race_ork\stikkbomma\ork_damage_aoe_stikkbomb.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_stikkbomb",
+simulation\attrib\ability\pvp\race_ork\stikkbomma\ork_immobilize_aoe_stungrenade.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_stun_grenade",
+simulation\attrib\ability\pvp\race_ork\stormboys\ork_damage_target_suicidejump.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_suicide",
+simulation\attrib\ability\pvp\race_ork\stormboys\ork_jump_target_stormboy.rbf
+simulation\attrib\ability\pvp\race_ork\stormboys\ork_jump_target_stormboy_improved.rbf
+simulation\attrib\ability\pvp\race_ork\tank\ork_damage_aoe_highpoweredshot.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_dont_press_dat",
+simulation\attrib\ability\pvp\race_ork\tankbustas\ork_damage_aoe_mortar.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_mortar_launcher",
+simulation\attrib\ability\pvp\race_ork\warboss\ork_buff_aoe_health.rbf
+simulation\attrib\ability\pvp\race_ork\warboss\ork_buff_self_damage.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_now_i_am_angry",
+simulation\attrib\ability\pvp\race_ork\warboss\ork_damage_aoe_stomp.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_stomp",
+simulation\attrib\ability\pvp\race_ork\warboss\ork_debuff_aoe_trophyrack.rbf
+simulation\attrib\ability\pvp\race_ork\warboss\ork_knockdown_target_rapidfire.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_shoot_em_good",
+simulation\attrib\ability\pvp\race_ork\warboss\ork_stun_aoe_bigstomp.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_big_stomp",
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_aoe_debuff_vomit.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_warp_vomit",
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_buff_aoe.rbf
+      "icon_file_path": "orks/icon_abilities/buff/ork_warpath",
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_damage_aoe_death.rbf
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_damage_aoe_footofgork.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_foot_of_gork",
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_damage_target_zzap.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_zzap",
+simulation\attrib\ability\pvp\race_ork\weirdboy\ork_knockback_direction_throw.rbf
+      "icon_file_path": "orks/icon_abilities/attack/ork_over_dere",
+simulation\attrib\ability\pvp\race_tyranid\brood_lord\tyr_buff_aoe_healhit.rbf
+simulation\attrib\ability\pvp\race_tyranid\brood_lord\tyr_buff_aoe_infiltrate.rbf
+simulation\attrib\ability\pvp\race_tyranid\brood_lord\tyr_buff_aoe_knockdownimmune.rbf
+simulation\attrib\ability\pvp\race_tyranid\brood_nest\tyr_spawn_gaunt_reinforcements.rbf
+simulation\attrib\ability\pvp\race_tyranid\carnifex\tyr_damage_aoe_bioplasma.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_bioplasma",
+simulation\attrib\ability\pvp\race_tyranid\carnifex\tyr_damage_aoe_charge.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_charge",
+simulation\attrib\ability\pvp\race_tyranid\carnifex\tyr_spawn_rippers.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_spawn_rippers",
+simulation\attrib\ability\pvp\race_tyranid\carnifex\tyr_spawn_spore_mines.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_spore_cysts",
+simulation\attrib\ability\pvp\race_tyranid\genestealer\tyr_adrenal_rush.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_adrenal_rush",
+simulation\attrib\ability\pvp\race_tyranid\genestealer\tyr_buff_self_infiltration.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_infiltrate",
+simulation\attrib\ability\pvp\race_tyranid\genestealer\tyr_stun_target_pounce.rbf
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_buff_aoe_revealhero.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_stalk",
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_buff_target_damage.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_catalyst",
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_damage_aoe_tyranoformation.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_tyrannoform",
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_spawn_mycetic_spore_hormagaunts.rbf
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_spawn_mycetic_spore_raveners.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_mycetic_spores",
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_spawn_mycetic_spore_warriors.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_warrior_vanguard",
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_spawn_spore_mines.rbf
+simulation\attrib\ability\pvp\race_tyranid\globals\tyr_spawn_without_number.rbf
+      "icon_file_path": "tyranids/icon_abilities/global/tyr_without_number",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_buff_aoe_healthsynapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_buff_self_energyshield.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_warp_field",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_buff_self_invincibility.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_invulnerability",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_damage_aoe_bioplasma.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_bioplasma",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_damage_aoe_charge.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_charge",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_damage_aoe_roar.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_terrifying_scream",
+simulation\attrib\ability\pvp\race_tyranid\hive_tyrant\tyr_debuff_aoe_scream.rbf
+      "icon_file_path": "tyranids/icon_abilities/debuff/tyr_psychic_scream",
+simulation\attrib\ability\pvp\race_tyranid\hormagaunt\tyr_upgrade_stats_tier2.rbf
+simulation\attrib\ability\pvp\race_tyranid\hormagaunt\tyr_upgrade_stats_tier3.rbf
+simulation\attrib\ability\pvp\race_tyranid\lictor\tyr_damage_target_fleshhook.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_flesh_hook",
+simulation\attrib\ability\pvp\race_tyranid\lictor\tyr_jump_target_leap.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_assault_leap",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_buff_self_infiltration.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_infiltrate",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_buff_self_loner.rbf
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_damage_aoe_poisoncloud.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_toxic_burst",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_damage_target_fleshhook.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_flesh_hook",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_defbuff_target_retreat.rbf
+      "icon_file_path": "tyranids/icon_abilities/debuff/tyr_terrify",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_jump_target_lictor.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_assault_leap",
+simulation\attrib\ability\pvp\race_tyranid\lictor_hero\tyr_spawn_phermone_cloud.rbf
+simulation\attrib\ability\pvp\race_tyranid\ravener\tyr_buff_self_burrow.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_burrow",
+simulation\attrib\ability\pvp\race_tyranid\ravener\tyr_jump_target_ravener.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_burrow_strike",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_buff_aoe_damage.rbf
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_buff_aoe_hive_node_smoke.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_spore_cloud",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_buff_self_avdamage.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_corrosive_devourer",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_buff_self_burrow.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_burrow",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_buff_self_speed.rbf
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_damage_aoe_poisoncloud.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_toxic_miasma",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_fleet_of_claw.rbf
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_spawn_burrow_trap.rbf
+      "icon_file_path": "tyranids/icon_abilities/build/tyr_burrow_trap",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_spawn_hive_node.rbf
+      "icon_file_path": "tyranids/icon_abilities/build/tyr_hive_node",
+simulation\attrib\ability\pvp\race_tyranid\ravener_hero\tyr_spawn_tunnel.rbf
+      "icon_file_path": "tyranids/icon_abilities/build/tyr_tunnel",
+simulation\attrib\ability\pvp\race_tyranid\ripper\tyr_spawn_ripper_reinforcement.rbf
+simulation\attrib\ability\pvp\race_tyranid\ripper\tyr_upgrade_tier2.rbf
+simulation\attrib\ability\pvp\race_tyranid\ripper\tyr_upgrade_tier3.rbf
+simulation\attrib\ability\pvp\race_tyranid\spore_mine\tyr_demo_charge_spore_mine.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_bio_acid_discharge",
+simulation\attrib\ability\pvp\race_tyranid\spore_mine\tyr_detonate_spore.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_detonate_spore_mines",
+simulation\attrib\ability\pvp\race_tyranid\spore_mine\tyr_detonate_spore_mine.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_buff_synapse_invincibility.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_buff_synapse_toggle_energy_drain.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_buff_synapse_toggle_health_drain.rbf
+      "icon_file_path": "tyranids/icon_abilities/debuff/tyr_leech_essence",
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_buff_synapse_toggle_invincibility.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_damage_aoe_bioplasma_swarmlord.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_damage_aoe_bladestorm.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_blade_fury",
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_debuff_aoe_harvest_swarmlord.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_debuff_target_paroxsym.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_melee_resistance_aura_swarmlord.rbf
+simulation\attrib\ability\pvp\race_tyranid\swarmlord\tyr_speed_aura_swarmlord.rbf
+simulation\attrib\ability\pvp\race_tyranid\termagaunt\tyr_debuff_target_crippling.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_crippling_poison",
+simulation\attrib\ability\pvp\race_tyranid\termagaunt\tyr_debuff_target_crippling_fx.rbf
+simulation\attrib\ability\pvp\race_tyranid\termagaunt\tyr_upgrade_tier2.rbf
+simulation\attrib\ability\pvp\race_tyranid\termagaunt\tyr_upgrade_tier3.rbf
+simulation\attrib\ability\pvp\race_tyranid\tyrant_guard\tyr_damage_aoe_charge.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_rampage",
+simulation\attrib\ability\pvp\race_tyranid\tyrant_guard\tyr_heal_self_enclose.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_shieldwall",
+simulation\attrib\ability\pvp\race_tyranid\warrior\tyr_buff_aoe_healthsynapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\warrior\tyr_buff_aoe_meleesynapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\warrior\tyr_buff_aoe_rangedsynapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\zoanthrope\tyr_buff_aoe_energysynapse.rbf
+simulation\attrib\ability\pvp\race_tyranid\zoanthrope\tyr_buff_self_energyshield.rbf
+      "icon_file_path": "tyranids/icon_abilities/buff/tyr_psychic_shield",
+simulation\attrib\ability\pvp\race_tyranid\zoanthrope\tyr_debuff_target_focusedblast.rbf
+      "icon_file_path": "tyranids/icon_abilities/attack/tyr_focused_warp_blast",
+simulation\attrib\ability\pvp\world_objects\pvp_victory_point_generator\wo_repair_self.rbf

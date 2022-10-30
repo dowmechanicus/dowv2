@@ -1,0 +1,10 @@
+[package]
+name = "sgacat"
+version = "0.1.0"
+authors = ["myrdal@dawnofwar.info"]
+build = "build.rs"
+
+[dependencies]
+byteorder = "1"
+flate2 = "0.2.19"
+libc = "0.2.29"
