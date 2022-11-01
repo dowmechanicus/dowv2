@@ -22,8 +22,40 @@ pool.query('SELECT 1;', (error, results) => {
   logger.info('Successfully connected to database')
 });
 
+/**
+ * You will need to use Promise.all to resolve the queries
+ * 
+ * @param {Array<{ query: string, params: any[]}>} queries 
+ * @returns 
+ */
+function transaction(queries) {
+  if (queries?.length < 1 || queries === null || queries === undefined) {
+    reject(new Error('Trying to start a DB transaction without passing queries'));
+  }
+
+  return new Promise((resolve, reject) => {
+    pool.getConnection((err, connection) => {
+      if (err) {
+        reject(err);
+      }
+
+      connection.beginTransaction(error => {
+        if (error) {
+          connection.rollback();
+          reject(error);
+        }
+
+        queries.forEach(({ queryString, params }) => query(queryString, params))
+
+      })
+    })
+
+  })
+}
+
 function query(query, params) {
-  logger.debug(`SQL Query: ${query}\nSQL Query Parameters: ${params}`, loggerMeta);
+  logger.debug(`SQL Query: ${query}`, loggerMeta);
+  logger.debug(`SQL Query Parameters: ${params}`, loggerMeta);
   return new Promise((resolve, reject) => {
     pool.query(query, params, (error, results) => {
       if (error) {
@@ -36,4 +68,4 @@ function query(query, params) {
   })
 }
 
-module.exports = query
+module.exports = { query, transaction };

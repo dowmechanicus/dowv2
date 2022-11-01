@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const query = require('../db')
+const { query } = require('../db')
 const { EntityNotFoundError } = require('../errors');
 const logger = require('../logger');
 

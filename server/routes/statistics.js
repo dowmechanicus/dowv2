@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const query = require('../db');
+const { query } = require('../db');
 const logger = require('../logger');
 const { checkCache, setCache } = require('../middleware/checkCache');
 

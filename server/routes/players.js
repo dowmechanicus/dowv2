@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios')
 
-const query = require('../db')
+const { query } = require('../db')
 const { EntityNotFoundError } = require('../errors')
 const logger = require('../logger')
 const { checkCache, setCache } = require('../middleware/checkCache');
