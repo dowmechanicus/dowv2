@@ -27,7 +27,7 @@ const checkCache = (cacheKey) => async (req, res, next) => {
       return res.json({ ...JSON.parse(cached) })
     }
   } catch (error) {
-    logger.error(error.message, { service: cacheKey ?? 'unknown' })
+    logger.error(error?.message ?? 'Unknown error', { service: cacheKey ?? 'unknown' })
   }
 }
 

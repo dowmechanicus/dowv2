@@ -13,7 +13,7 @@ const pool = mysql.createPool({
   supportBigNumbers: true
 });
 
-pool.query('SELECT 1;', (error, results) => {
+pool.query('SELECT 1;', (error,) => {
   if (error) {
     logger.error(`Could not connect to database. ${error}\n`);
     process.exit(1);
@@ -22,15 +22,30 @@ pool.query('SELECT 1;', (error, results) => {
   logger.info('Successfully connected to database')
 });
 
+function query(query, params) {
+  logger.debug(`SQL Query: ${query}`, loggerMeta);
+  logger.debug(`SQL Query Parameters: ${params}`, loggerMeta);
+  return new Promise((resolve, reject) => {
+    pool.query(query, params, (error, results) => {
+      if (error) {
+        logger.error(`SQL Query error: ${error}`, loggerMeta);
+        reject(error);
+      }
+
+      resolve(results)
+    })
+  })
+}
+
 /**
  * You will need to use Promise.all to resolve the queries
- * 
- * @param {Array<{ query: string, params: any[]}>} queries 
- * @returns 
+ *
+ * @param {Array<{ query: string, params: any[]}>} queries
+ * @returns
  */
 function transaction(queries) {
-  if (queries?.length < 1 || queries === null || queries === undefined) {
-    reject(new Error('Trying to start a DB transaction without passing queries'));
+  if (queries?.length < 1 || !queries) {
+    Promise.reject(new Error('Trying to start a DB transaction without passing queries'));
   }
 
   return new Promise((resolve, reject) => {
@@ -50,21 +65,6 @@ function transaction(queries) {
       })
     })
 
-  })
-}
-
-function query(query, params) {
-  logger.debug(`SQL Query: ${query}`, loggerMeta);
-  logger.debug(`SQL Query Parameters: ${params}`, loggerMeta);
-  return new Promise((resolve, reject) => {
-    pool.query(query, params, (error, results) => {
-      if (error) {
-        logger.error(`SQL Query error: ${error}`, loggerMeta);
-        reject(error);
-      }
-
-      resolve(results)
-    })
   })
 }
 

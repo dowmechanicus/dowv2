@@ -1,3 +1,5 @@
+/* eslint-disable prefer-promise-reject-errors */
+/* eslint-disable max-lines-per-function */
 const { createReadStream, createWriteStream } = require('fs');
 const { PutObjectCommand, S3Client } = require('@aws-sdk/client-s3');
 const { createGzip } = require('zlib');
@@ -11,11 +13,13 @@ const exec = promisify(require('child_process').exec);
 
 const { query } = require('../db');
 const logger = require('../logger');
+const { getHeroId } = require('../functions');
 
 const loggerMeta = { service: 'ESL-Reporter' };
 
 
 class Match {
+
   /**
    * Following properties are parsed from the file:
    * - md5 - MD5 key of replay file
@@ -31,10 +35,10 @@ class Match {
   static async parseReplayFile(pathname) {
     const command = `/home/mark/.cargo/bin/dow_replay_parser ${pathname}`;
     logger.debug('Parsing replay file', loggerMeta);
-    const { stdout, stderr } = await exec(command);
+    const { stdout, } = await exec(command);
     logger.debug('Done parsing replay file', loggerMeta);
 
-    let json = JSON.parse(stdout);
+    const json = JSON.parse(stdout);
 
     return {
       md5: json?.md5 ?? null,
@@ -48,7 +52,7 @@ class Match {
     };
   }
 
-  static async validateReplay(match) {
+  static validateReplay(match) {
     if (match?.aborted) {
       return Promise.reject({ error: 'aborted match, skipping', status: 400 })
     }
@@ -88,7 +92,6 @@ class Match {
   }
 
   static async writeReplayFileToS3Bucket(compressedFilePath) {
-    return;
     const Key = path.basename(compressedFilePath, '.rec.gz');
     const fileStream = createReadStream(compressedFilePath);
     const s3Client = new S3Client({ region: 'eu-central-1' });
@@ -147,7 +150,7 @@ class Match {
     return match.chat
       .filter(message => match?.players?.includes(message.sender))
       .filter(message => message?.tick <= 450)
-      .some(message => /^l$/.test(message));
+      .some(message => (/^l$/ui).test(message));
   }
 
   static isMatchUnranked(match) {
@@ -159,24 +162,24 @@ class Match {
     const unranked = match.chat
       .filter(message => match?.players?.includes(message.sender))
       .filter(message => message?.tick <= 450)
-      .some(message => /unranked/.test(message));
+      .some(message => (/unranked/ui).test(message));
 
     // Check if it is a league match -> always ranked
     const league = Match.isLeagueMatch(match);
 
-    // league matches are always ranked
+    // League matches are always ranked
     if (league) {
       return false;
     }
 
-    // all matches are ranked by default unless unranked was typed
+    // All matches are ranked by default unless unranked was typed
     if (!unranked) {
       return false;
     }
 
-    // all remaining games can only ever be unranked -> we don't want those in our db
+    // All remaining games can only ever be unranked -> we don't want those in our db
     return true
-  };
+  }
 
 
   static isMatch1v1(match) {
@@ -208,12 +211,11 @@ class Match {
     }
 
     // Add the match outcome to the matchups table for each player
-    const queries = match.players.map(player => {
-      return query(
+    const queries = match.players.map(player => query(
         'INSERT INTO matchups (match_id, player_id, hero, alias, slot, sim_id, win) VALUES (?,?,?,?,?,?,?)',
+        // eslint-disable-next-line eqeqeq
         [insertId, player.relic_id, player?.hero, player?.name, player?.slot, player?.sim_id, match.winner == player?.team]
-      );
-    });
+    ));
 
     await Promise.all(queries);
 
@@ -221,11 +223,11 @@ class Match {
     const reporterDate = match.reporter.date;
     const mapId = id;
     const modVersion = match.mod_version;
-    const p1 = match.players[0];
-    const p2 = match.players[1];
+    const [p1, p2] = match.players;
     const p1_hero = getHeroId(p1.race, p1.hero);
     const p2_hero = getHeroId(p2.race, p2.hero);
 
+    // eslint-disable-next-line no-nested-ternary, eqeqeq
     const winner = match.winner == p1.team ? 1 : match.winner == p2.team ? 2 : 0;
 
     await query(
