@@ -43,6 +43,7 @@ class Match {
     return {
       md5: json?.md5 ?? null,
       mod_version: json?.mod_version ?? null,
+      mod_chksum: json?.mod_checksum ?? json?.mod_chksum ?? null,
       player_count: json?.map?.maxplayers ?? null,
       chat: json?.messages ?? [],
       actions: json?.actions ?? [],
@@ -234,6 +235,16 @@ class Match {
       'INSERT INTO matches (match_relic_id, md5, mod_version, unix_utc_time, p1_relic_id, p2_relic_id, p1_name, p2_name, p1_hero, p2_hero, p1_rank, p2_rank, map, ticks, winner, ranked, chat, league) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [match.id, match.md5, modVersion, reporterDate, p1.relic_id, p2.relic_id, p1.name, p2.name, p1_hero, p2_hero, 0, 0, mapId, match.frames, winner, winner ? match.ranked : 0, match.chat, match.league]
     );
+
+    return match;
+  }
+
+  static async writeActionDataToDatabase(match) {
+    const queries = match.actions.map(({ tick, data, relic_id }) => query('INSERT INTO actions (tick, action_type, relic_id, match_relic_id, action_source, unit_id, action_context1, action_context2, item_id, mod_version) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [tick, data[0], relic_id, match.id, data[6], data[9], data[10], data[11], data[12], match.mod_chksum]
+    ));
+
+    await Promise.all(queries);
 
     return match;
   }

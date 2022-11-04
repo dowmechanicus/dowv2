@@ -31,7 +31,8 @@ Router.post('/', (req, res) => {
     )
     .then(match => Match.addFlagIfLeagueMatch(match))
     .then(match => Match.writeReplayToDataBase(match))
-    .then(match => res.status(200).json(match))
+    .then(match => Match.writeActionDataToDatabase(match))
+    .then(match => res.status(200).json({ ...match, replay: null }))
     .catch(error => {
       logger.error(error?.error ?? error?.message ?? error, loggerMeta);
       res.status(error?.status ?? 500).json({ ...error });
